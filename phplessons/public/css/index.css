@@ -1,0 +1,180 @@
+body {
+  background-color: #6a62d2;
+}
+
+.auth__container {
+  background-color: white;
+  width: 320px;
+  height: auto;
+  margin: 20vh auto;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  border-radius: 4%;
+}
+
+.auth__container .auth__title {
+  margin-top: 50px;
+  padding-top: 50px;
+
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.auth__container .auth__description {
+  margin-bottom: 20px;
+  color: #d1d2d7;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.auth__input__container {
+  display: inline-grid;
+}
+
+.auth__input {
+  width: 180px;
+  height: 35px;
+  margin: 3px 0px;
+
+  background-color: #f4f5ff;
+  border: none;
+  border-radius: 25px;
+  padding-left: 25px;
+}
+
+input::placeholder {
+  padding-left: 20px;
+}
+
+input[type="text"] {
+  margin-left: 20px;
+}
+input:focus {
+  outline: none;
+}
+
+.auth__submit {
+  background-color: #6c5dbd;
+  border: none;
+  border-radius: 25px;
+  width: 200px;
+  height: 35px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.auth__redirect {
+  text-decoration: none;
+  margin-bottom: 20px;
+  color: #d1d2d7;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.container {
+  font-family: "Roboto", sans-serif;
+  margin: 80px 50px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 30px;
+  width: 75%;
+  padding: 10px 65px;
+  margin: 55px 0px;
+}
+
+.logout {
+  text-align: right;
+  margin-left: 30px;
+  color: white;
+}
+.main-page {
+  margin-top: 50px;
+}
+
+.main-page-title {
+  font-size: 1.2em;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  border-bottom: 5px solid #6a62d2;
+  width: fit-content;
+}
+.main-page-subtitle {
+  margin: 30px 30px;
+  width: fit-content;
+}
+
+.track-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.track {
+  width: 210px;
+  margin-bottom: 20px;
+}
+.track-image {
+  width: 200px;
+  height: 200px;
+}
+
+.track-description {
+  text-align: center;
+}
+
+.track-author {
+  margin: 5px 0px;
+  font-weight: 300;
+  font-size: 0.9em;
+}
+.track-title {
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.favorite__track {
+  display: flex;
+  width: 300px;
+  height: 100px;
+}
+
+.favorite__track__image {
+  height: 80px;
+  width: 80px;
+  margin-right: 15px;
+}
+favorite__track__description {
+  font-family: "Roboto", sans-serif;
+}
+
+favorite__track__author {
+  font-weight: 300;
+}
+
+.favorite__track__title {
+  margin-top: 20px;
+  word-break: break-word;
+  font-weight: 500;
+  width: inherit;
+  padding-right: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    margin: 80px 80px;
+  }
+  .card {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  /* phones */
+  .container {
+    margin: 80px 25px;
+  }
+  .card {
+    width: 65%;
+  }
+}
