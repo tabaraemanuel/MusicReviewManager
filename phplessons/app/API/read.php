@@ -18,8 +18,24 @@ $songs_arr = array();
 $songs_arr['data'] = array();
 while($row = $result->fetch(PDO::FETCH_ASSOC)){
     extract($row);
-    
-}
-}else{
+    $post_item = array(
+     'id' => $id,
+     'isExplicit'=> $explicit,
+     'releaseDate' => $releaseDate,
+     'songName' => $songName,
+     'albumName'=> $albumName,
+     'artists'=> $artists,
+     'addedAt'=> $addedAt,
+     'albumImageURL'=> $songImage,
+     'genre'=> $genre,
+     'duration'=> $duration
+    );
+    array_push($songs_arr['data'],$post_item);
 
+}
+echo json_encode($songs_arr);
+}else{
+    echo json_encode(array(
+        'message'=> 'No tracks found!'
+    ));
 }
