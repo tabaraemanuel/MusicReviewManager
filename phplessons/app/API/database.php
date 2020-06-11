@@ -1,7 +1,7 @@
 <?php
 class database{
     private $host = 'localhost';
-    private $dbName = 'songs';
+    private $dbName = 'Proiect';
     private $username = 'root';
     private $password = '';
     private $conn;
@@ -17,4 +17,5 @@ class database{
         }
         return $this->conn;
     }
+
 }

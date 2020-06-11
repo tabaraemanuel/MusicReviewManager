@@ -23,9 +23,14 @@ class post{
     }
 
     public function read(){
-        $query = 'SELECT * FROM ' . $this->table . 'WHERE explicit =\'F\';';
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE explicit =\'F\';';
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
     }
+
+    public function signup(){
+        
+    }
+
 }

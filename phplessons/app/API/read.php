@@ -18,7 +18,7 @@ $songs_arr = array();
 $songs_arr['data'] = array();
 while($row = $result->fetch(PDO::FETCH_ASSOC)){
     extract($row);
-    $post_item = array(
+     $post_item = array(
      'id' => $id,
      'isExplicit'=> $explicit,
      'releaseDate' => $releaseDate,

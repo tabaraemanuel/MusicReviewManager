@@ -1,3 +1,3 @@
 <?php
-echo 'Hello ' . $data['name'];
+echo 'Helloso ' . $data['name'];
 ?>
