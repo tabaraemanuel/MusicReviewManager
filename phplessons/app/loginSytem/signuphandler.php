@@ -27,11 +27,9 @@ if(isset($_REQUEST['signup_submit'])){
         exit();
     }else{       
         $query = "SELECT username FROM users WHERE username=? or userEmail=?";
-        $stmt = mysqli_stmt_init($conn);
-        
+        $stmt = mysqli_stmt_init($conn); 
         if(!mysqli_stmt_prepare($stmt,$query)){
-            $set = $conn ? "true" : "false" ;
-            header("Location: http://localhost/phplessons/app/signup.php?error=firstsqlerror" . $set);
+            header("Location: http://localhost/phplessons/app/signup.php?error=firstsqlerror");
             exit();
         } else{
             mysqli_stmt_bind_param($stmt,"ss",$username,$email);
@@ -51,9 +49,7 @@ if(isset($_REQUEST['signup_submit'])){
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                 mysqli_stmt_bind_param($stmt,"sss",$email,$hashedPassword,$username);
                 mysqli_stmt_execute($stmt);
-                header("Location: http://localhost/phplessons/app/signup.php?signup=succes");
-                exit();
-                
+                header("Location: http://localhost/phplessons/app/login.php?signup=succes");      
             }
             }
         }
@@ -63,6 +59,7 @@ if(isset($_REQUEST['signup_submit'])){
         mysqli_stmt_close($stmt);
     }
     mysqli_close($conn);
+    exit();
     
 }else{
     header("Location: http://localhost/phplessons/app/signup.php");

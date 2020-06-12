@@ -13,7 +13,7 @@
           <input name="password" type="password" class="auth__input" placeholder="Password" />
           <input name="email" type='email' class="auth__input" placeholder="Email adress" /><br />
           <button class="auth__submit" type="submit" name="signup_submit">Submit</button>
-          <a href="#/login" class="auth__redirect" href="#">Login</a>
+          <a href="http://localhost/phplessons/app/login.php" class="auth__redirect" href="#">Login</a>
         </form>
       </div>
 </body>
