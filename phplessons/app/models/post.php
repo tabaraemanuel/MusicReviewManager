@@ -22,15 +22,10 @@ class post{
         $this->conn = $db;
     }
 
-    public function read(){
-        $query = 'SELECT * FROM ' . $this->table . ' WHERE explicit =\'F\';';
+    public function read($id = ''){
+        $query = 'SELECT * FROM ' . $this->table . " WHERE id = $id;";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
     }
-
-    public function signup(){
-        
-    }
-
 }

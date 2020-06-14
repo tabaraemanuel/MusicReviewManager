@@ -1,4 +1,22 @@
-<html>
+<!DOCTYPE html>
+<?php
+        if(!empty($data)){
+              $id = $data['id']; 
+              $isExplicit = $data['isExplicit'];
+              $releaseDate = $data['releaseDate'];
+              $songName = $data['songName'];
+              $albumName = $data['albumName'];
+              $artists = $data['artists'];
+              $addedAt = $data['addedAt'];
+              $albumImageURL = $data['albumImageURL'];
+              $genre = $data['genre'];
+              $duration = $data['duration'];
+              $annotations = $data['annotations'];
+              $isrc = $data['isrc'];
+              $popularity = $data['popularity'];
+         }
+?>
+<html lang="en">
 <head>
   <title>Album</title>
 <link rel="stylesheet" type="text/css" href="Album.css">
@@ -218,7 +236,7 @@ display: block;
   <a class="meniuleft" href="Friends.php">Prieteni/Grupuri</a>
    <a class="meniuleft" href="#6">Cautare</a>
 </div>
- <a class="meniuright" href="#Logout">Logout</a>
+ <a class="meniuright" href="http://localhost/phplessons/public/logout">Logout</a>
 </div>
 <div class="continutContainter">
 <div class="continut">
@@ -233,16 +251,14 @@ display: block;
   <label for="t">T</label>
   <input type="radio" id="f" name="expicit" value="f">
   <label for="n">F</label><br> 
-    ReleaseDate:   <input class="casetaMetadate" type="date" id="birthday" name="birthday">  <br>
-    SongName:      <input class="casetaMetadate" type="text" id="sname" name="sname"><br>
-    AlbumName:     <input class="casetaMetadate" type="text" id="sname" name="sname"><br> 
-    Artists:       <input class="casetaMetadate" type="text" id="sname" name="sname"><br> 
-    AddedAt:       <input class="casetaMetadate" type="date" id="birthday" name="birthday"> <br>
-    AlbumImageURL: <input class="casetaMetadate" type="url" id="imageURL" name="imageURL"> <br>
-    Genre:<input class="casetaMetadate" type="text" id="sname" name="sname"><br> 
+    ReleaseDate:   <input value="<?php echo (isset($releaseDate))?$releaseDate:'';?>" class="casetaMetadate" type="date" id="birthday" name="birthday">  <br>
+    SongName:      <input value="<?php echo (isset($songName))?$songName:'';?>" class="casetaMetadate" type="text" id="sname" name="sname"><br>
+    AlbumName:     <input value="<?php echo (isset($albumName))?$albumName:'';?>" class="casetaMetadate" type="text" id="sname" name="sname"><br> 
+    Artists:       <input value="<?php echo (isset($artists))?$artists:'';?>" class="casetaMetadate" type="text" id="sname" name="sname"><br> 
+    AddedAt:       <input value="<?php echo (isset($addedAt))?$addedAt:'';?>" class="casetaMetadate" type="date" id="birthday" name="birthday"> <br>
+    AlbumImageURL: <input value="<?php echo (isset($albumImageURL))?$albumImageURL:'';?>" class="casetaMetadate" type="url" id="imageURL" name="imageURL"> <br>
+    Genre:<input value="<?php echo (isset($genre))?$genre:'';?>" class="casetaMetadate" type="text" id="sname" name="sname"><br> 
    <label for="quantity">Duration:</label> <input class="casetaMetadate" type="number" id="quantity" name="quantity" min="0" max="5" placeholder="Ore">
-             <input class="casetaMetadate" type="number" id="quantity" name="quantity" min="0" max="59" placeholder="Minute">
-             <input class="casetaMetadate" type="number" id="quantity" name="quantity" min="0" max="59" placeholder="Secunde">  <br>
              <a href="#" class="buttonTrimitere">Salveaza</a>
 </div>
 </div>

@@ -19,8 +19,8 @@ echo 'Helloso ' . $data['username'];
 </form>
 
 
-<form action="http://localhost/phplessons/public/metadata" class="auth__input__container" method="post">
-        <input class="auth__input" placeholder="Song title" name="song-send" />
+<form action="http://localhost/phplessons/public/metadata/index" class="auth__input__container" method="POST">
+        <input class="auth__input" placeholder="Song id" name="meta-send" />
         <br/>
         <button  name="Metadata" class="auth__submit" type="submit">Metadata</button>
 </form>

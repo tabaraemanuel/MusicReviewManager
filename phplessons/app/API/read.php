@@ -28,7 +28,10 @@ while($row = $result->fetch(PDO::FETCH_ASSOC)){
      'addedAt'=> $addedAt,
      'albumImageURL'=> $songImage,
      'genre'=> $genre,
-     'duration'=> $duration
+     'duration'=> $duration,
+     'addonations' => $annotations,
+     'isrc' => $isrc,
+     'popularity' => $popularity
     );
     array_push($songs_arr['data'],$post_item);
 }
