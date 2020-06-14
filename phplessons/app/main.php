@@ -1,7 +1,10 @@
-<?php
-?>
-
-<div class="container">
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <title>Main</title>
+  </head>
+  <body>
+  <div class="container">
         <div class="logout">Logout</div>
         <div class="main-page">
           <div class="card">
@@ -37,5 +40,7 @@
         </div>
       </div>
 
-<?php
-      ?>
+  </body>
+</html>
+
+

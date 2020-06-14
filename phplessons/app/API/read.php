@@ -31,9 +31,7 @@ while($row = $result->fetch(PDO::FETCH_ASSOC)){
      'duration'=> $duration
     );
     array_push($songs_arr['data'],$post_item);
-
 }
-echo json_encode($songs_arr);
 }else{
     echo json_encode(array(
         'message'=> 'No tracks found!'

@@ -10,5 +10,7 @@ class metadataModel{
     public $albumImageURL;
     public $genre;
     public $duration;
+    public $isrc;
+    public $popularity;
 
 }
