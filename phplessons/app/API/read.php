@@ -10,7 +10,7 @@ $db = $databse->connect();
 
 $post = new post($db);
 
-$result = $post->read();
+$result = $post->read("");
 $num = $result->rowCount();
 
 if($num > 0){

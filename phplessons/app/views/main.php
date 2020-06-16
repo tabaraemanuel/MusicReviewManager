@@ -4,6 +4,10 @@
 if(isset($data["username"])){
 echo 'Helloso ' . $data['username'];
 }
+if(isset($data['msg'])){
+        $msg = $data['msg'];
+        echo " $msg";
+}
 ?>
 
 <html>
@@ -14,12 +18,12 @@ echo 'Helloso ' . $data['username'];
 <body>
 
 <form action="http://localhost/phplessons/public/logout" class="auth__input__container" method="post">
-        <button  name="logout" class="auth__submit" type="submit">Logout</button>
+        <button  name="logout" class="auth__submit" type="submit"><?php echo "nice"?></button>
         
 </form>
 
 
-<form action="http://localhost/phplessons/public/metadata/index" class="auth__input__container" method="POST">
+<form action="http://localhost/phplessons/public/metadata" class="auth__input__container" method="POST">
         <input class="auth__input" placeholder="Song id" name="meta-send" />
         <br/>
         <button  name="Metadata" class="auth__submit" type="submit">Metadata</button>
