@@ -13,30 +13,30 @@ $post = new post($db);
 $result = $post->read("");
 $num = $result->rowCount();
 
-if($num > 0){
-$songs_arr = array();
-$songs_arr['data'] = array();
-while($row = $result->fetch(PDO::FETCH_ASSOC)){
-    extract($row);
-     $post_item = array(
-     'id' => $id,
-     'isExplicit'=> $explicit,
-     'releaseDate' => $releaseDate,
-     'songName' => $songName,
-     'albumName'=> $albumName,
-     'artists'=> $artists,
-     'addedAt'=> $addedAt,
-     'albumImageURL'=> $songImage,
-     'genre'=> $genre,
-     'duration'=> $duration,
-     'addonations' => $annotations,
-     'isrc' => $isrc,
-     'popularity' => $popularity
-    );
-    array_push($songs_arr['data'],$post_item);
-}
-}else{
+if ($num > 0) {
+    $songs_arr = array();
+    $songs_arr['data'] = array();
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        extract($row);
+        $post_item = array(
+            'id' => $id,
+            'isExplicit' => $explicit,
+            'releaseDate' => $releaseDate,
+            'songName' => $songName,
+            'albumName' => $albumName,
+            'artists' => $artists,
+            'addedAt' => $addedAt,
+            'albumImageURL' => $songImage,
+            'genre' => $genre,
+            'duration' => $duration,
+            'addonations' => $annotations,
+            'isrc' => $isrc,
+            'popularity' => $popularity
+        );
+        array_push($songs_arr['data'], $post_item);
+    }
+} else {
     echo json_encode(array(
-        'message'=> 'No tracks found!'
+        'message' => 'No tracks found!'
     ));
 }

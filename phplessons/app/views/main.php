@@ -2,7 +2,7 @@
 <?php
 
 if(isset($data["username"])){
-echo 'Helloso ' . $data['username'];
+echo 'Hello ' . $data['username'];
 }
 if(isset($data['msg'])){
         $msg = $data['msg'];

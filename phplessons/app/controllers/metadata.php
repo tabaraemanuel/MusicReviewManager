@@ -57,15 +57,17 @@ class metadata extends Controller{
             $this->view('metadata',$data);
         }else{
             header("Location: http://localhost/phplessons/public/login");
+            exit();
         }
     }
     else
         {
             header("Location: http://localhost/phplessons/public/main");
+            exit();
         }
     }
 
-
+    //TODO: Complete params with only default values
     public function save(){
         if(isset($_REQUEST['meta-submit'])){
             header('Acces-Control-Allow-Origin: *');

@@ -1,0 +1,128 @@
+<?php
+class song extends Controller{
+
+    public function sendComment($id){
+        $id = (int)$id;
+        session_start();
+        if($id === 0){
+            header("Location: http://localhost/phplessons/public/main");
+            exit();
+        }
+        
+        if(!isset($_SESSION['username'])){
+            
+            header("Location: http://localhost/phplessons/public/login");
+            exit();
+        }
+        
+        $username = $_SESSION['username'];
+        include_once  "../app/API/newdb.php";
+        $conn = getconn();
+        $rating = isset($_POST['fnota'])?$_POST['fnota']:0;
+        $content = isset($_POST['content'])?$_POST['content']:"  ";
+            $sendQuery = "INSERT INTO comments (username,content,rating,songID) values (?,?,?,?)";
+            $selectStmt = mysqli_stmt_init($conn); 
+            if(!mysqli_stmt_prepare($selectStmt,$sendQuery)){
+                $msg= "Database Error!";
+                header("Location: http://localhost/phplessons/public/song/error/" . $msg);        
+                exit();
+            }
+            mysqli_stmt_bind_param($selectStmt,"sssi",$username,$content,$rating,$id);
+            $selectStmt->execute();
+            
+            if(!$selectStmt->execute()){
+                $msg= "Database Error!";
+                
+                header("Location: http://localhost/phplessons/public/song/error/" . $msg);        
+                exit();
+            }
+            $selectStmt->free_result();
+            $selectStmt->close();
+            $msg = "succes";
+            header("Location: http://localhost/phplessons/public/song/" .$id);
+            exit();
+    }
+
+
+
+    private function getdata($id){
+        include_once  "../app/API/newdb.php";
+        $conn = getconn();
+        $sql = "SELECT * from metadata where id = $id";
+        $myres = array();
+        $result = mysqli_query($conn,$sql);
+        while($row = mysqli_fetch_assoc($result)){
+            $item = array(
+                'id' => $row['id'],
+                'songName' => $row['songName'],
+                'albumName' => $row['albumName'],
+                'artists' => $row['artists'],
+                'releaseDate' => $row['releaseDate'],
+                'songImage' => $row['songImage'],
+                'genre' => $row['genre'],
+                'popularity' => $row['popularity']
+               );
+               
+               array_push($myres,$item);
+        }
+        $conn->close();
+        return $myres[0];
+    }
+    
+
+
+    private function getcomments($id){
+        include_once  "../app/API/newdb.php";
+        $conn = getconn();
+        $sql = "SELECT * from comments where songID = $id";
+        $myres = array();
+        $result = mysqli_query($conn,$sql);
+        while($row = mysqli_fetch_assoc($result)){
+            $item = array(
+                'username' => $row['username'],
+                'content' => $row['content'],
+                'rating' => $row['rating'],
+               );
+               array_push($myres,$item);
+        }
+        $conn->close();
+        return $myres;
+       
+    }
+
+
+    public function index($id){
+        session_start();
+        if(isset($_SESSION['username'])){
+            if(isset($id)){
+                if($id != -1){
+                    
+                    $casted = (int)$id;
+                    if($casted == 0){
+                        header("Location: http://localhost/phplessons/public/main");
+                        exit();
+                    }
+                    $comments = $this->getcomments($id);
+                    $data = $this->getdata($id);
+                    $this->view('song',['comments'=>$comments,'data'=>$data]);
+                }
+                
+            }else{
+                header("Location: http://localhost/phplessons/public/main");
+            }
+        }else{
+            header("Location: http://localhost/phplessons/public/login");
+        }
+        
+    }
+
+    public function error($error = ""){
+        session_start();
+        $error = str_replace('_', ' ', $error);
+        if(isset($_SESSION['username'])){
+            $this->view('song',['error' => $error]);
+        }else{
+            header("Location: http://localhost/phplessons/public/login");
+        }
+    }
+}
