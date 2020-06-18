@@ -66,7 +66,7 @@ header("Content-Type: text/html");
         <div>
           <form action="http://localhost/phplessons/public/song/sendComment/<?php echo (isset($id)) ? $id : 0; ?>" class="auth__input__container" method="POST">
             <input readonly class="inputNume" type="text" name="fname" value="<?php echo (isset($_SESSION['username'])) ? $_SESSION['username'] : ''; ?>">
-            <input class="inputNota" type="number" min=1 max=5 name="fnota" Placeholder="Nota">
+            <input class="inputNota" type="number" min=1 max=5 name="fnota" value=1>
             <br>
             <br>
             <textarea rows="4" name="content" Placeholder="Spuneti parerea aici."></textarea>

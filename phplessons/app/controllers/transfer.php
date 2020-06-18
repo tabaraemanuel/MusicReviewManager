@@ -13,7 +13,7 @@ class transfer extends Controller
             header("Location: http://localhost/phplessons/public/transfer/error/dberror!");
             exit();
         }
-        $selectQuery = "SELECT song,creator,songId from favorites where username =?";
+        $selectQuery = "SELECT song,artists,songId from favorites where username =?";
         $selectStmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($selectStmt, $selectQuery)) {
             $msg = "Database Error!";
@@ -50,8 +50,6 @@ class transfer extends Controller
         session_start();
         if (isset($_SESSION['username'])) {
             $data = $this->getfavorites($_SESSION['username']);
-            echo count($data);
-
             $this->view('transfer', $data);
         } else {
             header("Location: http://localhost/phplessons/public/login");
