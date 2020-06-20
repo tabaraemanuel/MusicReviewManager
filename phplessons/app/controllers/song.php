@@ -101,7 +101,7 @@ class song extends Controller
     {
         include_once  "../app/API/newdb.php";
         $conn = getconn();
-        $sql = "SELECT * from comments where songID = $id";
+        $sql = "SELECT * from comments where songID = $id order by commentID DESC";
         $myres = array();
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {

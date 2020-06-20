@@ -102,7 +102,10 @@ class main extends Controller
     {
         session_start();
         if (isset($_SESSION['username'])) {
-            $this->view('main', ['username' => $_SESSION["username"], 'msg' => $msg]);
+            $songspop = $this->getpopular();
+            $songsrec = $this->getrecenttracks();
+            $albumsrec = $this->getalbums();
+            $this->view('main', ['popular' => $songspop, 'recent' => $songsrec, 'album' => $albumsrec, 'msg' => $msg]);
         } else {
             header("Location: http://localhost/phplessons/public/login");
         }

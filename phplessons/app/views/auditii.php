@@ -6,15 +6,7 @@
   <link rel="stylesheet" type="text/css" href="http://localhost/phplessons/public/css/Auditi.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<div class="topnav">
-  <div>
-    <a class="meniuleftActive" href="Main.php">Home</a>
-    <a class="meniuleft" href="#">Flux Stiri</a>
-    <a class="meniuleft" href="Export.php">Favorite</a>
-    <a class="meniuleft" href="Auditi.php">Auditii utilizatori</a>
-  </div>
-  <a class="meniuright" href="#Logout">Logout</a>
-</div>
+<?php include "css/men.shtml"; ?>
 
 <div class="continutContainter">
   <div class="continut">
@@ -24,7 +16,7 @@
     <?php
     $lastid = 0;
     $conn = $data['conn'];
-    $sql = "SELECT * from istoric order by timestamp desc limit 5";
+    $sql = "SELECT * from istoric order by id limit 5";
     $myres = array();
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
@@ -36,11 +28,41 @@
       $albumName = $row['albumName'];
       echo  '<div class="box">
           <span class="dataRightCorner">' . $time . '</span>
-          <h2 class="textCentrat">' . $username . ' a ascultat <a href="http://localhost/phplessons/public/css/song/' . $songid . '" class="linkCategori">' . $songName . '</a> de pe <a href="#" class="linkCategori">' . $albumName . '</a>. </h2>
+          <h2 class="textCentrat">' . $username . ' a ascultat <a href="http://localhost/phplessons/public/song/' . $songid . '" class="linkCategori">' . $songName . '</a> de pe <a href="#" class="linkCategori">' . $albumName . '</a>. </h2>
           </div>';
     }
     ?>
   </div>
+  <script type="text/javascript">
+    {
+      var again = true;
+      var count = document.getElementsByClassName('box');
+      var lastId = count.length - 1;
+      if (again) {
+        window.onscroll = function() {
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            if (again) {
+              var xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  oldid = lastId;
+                  elem = document.getElementsByClassName('continut');
+                  elem[0].innerHTML += this.responseText;
+                  count = document.getElementsByClassName('box');
+                  lastId = count.length - 1;
+                  console.log(oldid, lastId)
+                  if (oldid != 5 + lastId)
+                    again = false;
+                }
+              };
+              xmlhttp.open("GET", 'http://localhost/phplessons/public/utilitar/index/' + lastId, true);
+              xmlhttp.send();
+            }
+          }
+        };
+      }
+    }
+  </script>
 </div>
 
 </html>

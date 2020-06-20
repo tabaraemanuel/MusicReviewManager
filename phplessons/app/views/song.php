@@ -23,16 +23,7 @@ header("Content-Type: text/html");
 </head>
 
 <body>
-  <div class="topnav">
-    <div>
-      <a class="meniuleftActive" href="Main.php">Home</a>
-      <a class="meniuleft" href="#">Flux Stiri</a>
-      <a class="meniuleft" href="Export.php">Favorite</a>
-      <a class="meniuleft" href="Friends.php">Auditii utilizatori</a>
-
-    </div>
-    <a class="meniuright" href="#Logout">Logout</a>
-  </div>
+  <?php include "css/men.shtml"; ?>
   <div class="continutContainter">
     <div class="continut">
       <div class="box">

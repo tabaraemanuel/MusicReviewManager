@@ -1,0 +1,206 @@
+body{
+margin: 0;
+color: white;
+ background-color: #6a62d2;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.textCentrat
+{
+	text-align:center;
+}
+
+.meniuleft{
+ float: left;
+  border-right: 2px solid black;
+  
+}
+
+.meniuleftActive{
+ float: left;
+ background-color: #1c1d22;
+ border-right: 2px solid black;
+  color: white;
+}
+
+.meniuright{
+  float: right;
+   border-left: 2px solid black;
+ 
+}
+.continut
+{
+	
+    margin-top: 15px;
+    margin-bottom: 40px;
+	padding:20px;
+    background: #171717;
+    border: 1px solid #323232;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+    border-radius: 7px;
+}
+
+.continutContainter
+{   padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
+	display: block;
+}
+.box
+{    background-color: #1c1d22;
+    padding: 15px;
+    border: 1px solid #323232;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+    overflow:auto;
+    clear: both;
+    margin: 0 0 10px;
+	border-radius: 7px;
+	
+}
+.boxMargin
+{    background-color: #2F4F4F;
+    padding: 15px;
+    border: 3px solid black;
+    box-shadow: 2px 2px 5px white;
+    overflow:auto;
+    margin: auto;
+	border-radius: 7px;
+	min-width: 150px;
+	
+}
+.linkCategori
+{
+	text-decoration:none;
+	color: white;
+}
+.dataRightCorner
+{
+	float: right;
+}
+.numeU
+{    min-height: 40px;
+ border: 3px solid black;
+	 background-color:  #404040;
+	border-radius: 3px;
+	margin-top: 15px;
+	padding: 10px;
+	text-align: center;
+}
+.numeU:hover
+{
+	 background-color:  #595959;
+	 color: #ffffff;
+	
+}
+.butonStergere
+{	border-radius: 25px;
+	color: black;
+	border: 2px solid black;
+    float: right;
+    text-align: center;
+    text-decoration: none;
+	background-color:yellow;
+	padding: 10px;
+	
+}
+.butonStergere:hover
+{
+	background-color:white;
+
+	
+}
+.textNumeU
+{   display: inline-block;
+	margin-top:10px;
+}
+.casetaMetadate
+{
+	width: 99%;
+  padding: 10px 10px;
+  margin-top: 9px ;
+   margin-bottom: 9px ;
+  border-radius: 10px;
+  	font-size:15px ;
+}
+.buttonTrimitere
+{
+	float: right;
+	border-radius: 8px;
+	background-color: #4169E1;
+	text-align: center;
+  text-decoration: none;
+	color: white;
+  padding: 15px 32px;
+}
+.buttonTrimitere:hover
+{
+	border:2px solid black;
+}
+.textMetadate
+{
+	text-align: left;
+	font-size:24px ;
+}
+.casetaSQl
+{  
+	font-family: "Lucida Console";
+	background-color:black;
+	color: yellow;
+	width: 99%;
+    padding: 5px ;
+    margin-top: 9px ;
+   margin-bottom: 9px ;
+  border-radius: 10px;
+  	font-size:15px ;
+}
+.rezultat
+{  border: 1px solid white;
+	font-family: "Lucida Console";
+	background-color:black;
+	color: yellow;
+	width: 99%;
+  padding: 10px ;
+  margin-top: 9px ;
+   margin-bottom: 9px ;
+  border-radius: 5px;
+  	font-size:15px ;
+}
+.textSql
+{min-height: 160px;
+}
+.textSql textarea {
+  resize: none;
+}
+.buttonExecuta
+{   font-family: "Lucida Console";
+	float:right;
+	font-size:15px ;
+	border-radius: 8px;
+	background-color: black;
+	text-align: center;
+  text-decoration: none;
+	color: yellow;
+  padding: 15px 32px;
+}
+.buttonExecuta:hover{
+border:2px solid yellow;
+}
+

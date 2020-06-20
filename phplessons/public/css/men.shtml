@@ -1,0 +1,10 @@
+<div class="topnav">
+  <div>
+    <a class="meniuleftActive" href="http://localhost/phplessons/public/main">Home</a>
+    <a class="meniuleft" href="http://localhost/phplessons/public/main">Flux Stiri</a>
+    <a class="meniuleft" href="http://localhost/phplessons/public/transfer">Favorite</a>
+    <a class="meniuleft" href="http://localhost/phplessons/public/auditii">Auditii utilizatori</a>
+
+  </div>
+  <a class="meniuright" href="http://localhost/phplessons/public/logout">Logout</a>
+</div>

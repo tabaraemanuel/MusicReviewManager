@@ -14,18 +14,7 @@
 
   </style>
 </head>
-
-
-<div class="topnav">
-  <div>
-    <a class="meniuleftActive" href="http://localhost/phplessons/public/main">Home</a>
-    <a class="meniuleft" href="#">Flux Stiri</a>
-    <a class="meniuleft" href="http://localhost/phplessons/public/transfer">Favorite</a>
-    <a class="meniuleft" href="Friends.php">Auditii utilizatori</a>
-
-  </div>
-  <a class="meniuright" href="http://localhost/phplessons/public/logout">Logout</a>
-</div>
+<?php include "css/men.shtml"; ?>
 
 <form action="http://localhost/phplessons/public/metadata" class="auth__input__container" method="POST">
   <input class="auth__input" placeholder="Song id" name="meta-send" />
@@ -62,25 +51,22 @@
           $songImage = $data['popular'][$i]['songImage'];
           $genre = $data['popular'][$i]['genre'];
           $popularity = $data['popular'][$i]['popularity'];
-
+          $albumNamesec = preg_replace('/\s+/', '_', $albumName);
+          $artistssec = preg_replace('/\s+/', '_', $artists);
+          $genresec = preg_replace('/\s+/', '_', $genre);
           echo '<div class="boxMargin">
       <a href="Song.php" class="linkCategori"> <img class="coverRecenzie" src="' . $songImage . '" alt="user"></a>
       <p class="textCentrat">
-        Melodie:<a href="Song.php" class="linkCategori">' . $songName . '</a> <br>
-        Album:<a href="Album.php" class="linkCategori"> ' . $albumName . '</a> <br>
-        Artist:<a href="#1" class="linkCategori">' . $artists . '</a><br>
-        Categorie:<a href="#1" class="linkCategori">' . $genre . '</a> <br>
-        An:<a href="#1" class="linkCategori"> ' . $releaseDate . '</a> <br>
+        Melodie:<a href="song/' . $id . '" class="linkCategori">' . $songName . '</a> <br>
+        Album:<a href="recomandate/index/albumName/' . $albumNamesec . '" class="linkCategori"> ' . $albumName . '</a> <br>
+        Artist:<a href="recomandate/index/artists/' . $artistssec . '" class="linkCategori">' . $artists . '</a><br>
+        Categorie:<a href="recomandate/index/genre/' . $genresec . '" class="linkCategori">' . $genre . '</a> <br>
+        An:<a class="linkCategori"> ' . $releaseDate . '</a> <br>
       </p>
     </div>';
         }
       }
       ?>
-
-
-
-
-
     </div>
 
     <div class="box">
@@ -98,15 +84,16 @@
           $albumName = $data['album'][$i]['albumName'];
           $artists = $data['album'][$i]['artistName'];
           $image = $data['album'][$i]['image'];
-
+          $albumNamesec = preg_replace('/\s+/', '_', $albumName);
+          $artistssec = preg_replace('/\s+/', '_', $artists);
           echo '<div class="boxMargin">
-      <a href="Album.php" class="linkCategori"> <img class="coverRecenzie" src="' . $image . '" alt="user"></a>
-      <p class="textCentrat">
-        Album:<a href="Album.php" class="linkCategori"> ' . $albumName . '</a> <br>
-        Artist:<a href="#1" class="linkCategori">' . $artists . '</a><br>
-        An:<a href="#1" class="linkCategori"> ' . $releaseDate . '</a> <br>
-      </p>
-    </div>';
+          <a href="Song.php" class="linkCategori"> <img class="coverRecenzie" src="' . $image . '" alt="user"></a>
+          <p class="textCentrat">
+            Album:<a href="recomandate/index/albumName/' . $albumNamesec . '" class="linkCategori"> ' . $albumName . '</a> <br>
+            Artist:<a href="recomandate/index/artists/' . $artistssec . '" class="linkCategori">' . $artists . '</a><br>
+            An:<a class="linkCategori"> ' . $releaseDate . '</a> <br>
+          </p>
+        </div>';
         }
       }
       ?>
@@ -134,17 +121,19 @@
           $songImage = $data['recent'][$i]['songImage'];
           $genre = $data['recent'][$i]['genre'];
           $popularity = $data['recent'][$i]['popularity'];
-
+          $albumNamesec = preg_replace('/\s+/', '_', $albumName);
+          $artistssec = preg_replace('/\s+/', '_', $artists);
+          $genresec = preg_replace('/\s+/', '_', $genre);
           echo '<div class="boxMargin">
-      <a href="Song.php" class="linkCategori"> <img class="coverRecenzie" src="' . $songImage . '" alt="user"></a>
-      <p class="textCentrat">
-        Melodie:<a href="Song.php" class="linkCategori">' . $songName . '</a> <br>
-        Album:<a href="Album.php" class="linkCategori"> ' . $albumName . '</a> <br>
-        Artist:<a href="#1" class="linkCategori">' . $artists . '</a><br>
-        Categorie:<a href="#1" class="linkCategori">' . $genre . '</a> <br>
-        An:<a href="#1" class="linkCategori"> ' . $releaseDate . '</a> <br>
-      </p>
-    </div>';
+          <a href="Song.php" class="linkCategori"> <img class="coverRecenzie" src="' . $songImage . '" alt="user"></a>
+          <p class="textCentrat">
+            Melodie:<a href="song/' . $id . '" class="linkCategori">' . $songName . '</a> <br>
+            Album:<a href="recomandate/index/albumName/' . $albumNamesec . '" class="linkCategori"> ' . $albumName . '</a> <br>
+            Artist:<a href="recomandate/index/artists/' . $artistssec . '" class="linkCategori">' . $artists . '</a><br>
+            Categorie:<a href="recomandate/index/genre/' . $genresec . '" class="linkCategori">' . $genre . '</a> <br>
+            An:<a class="linkCategori"> ' . $releaseDate . '</a> <br>
+          </p>
+        </div>';
         }
       }
       ?>

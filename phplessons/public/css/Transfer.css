@@ -1,0 +1,218 @@
+ body{
+margin: 0;
+color: white;
+ background-color: #6a62d2;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+
+.meniuleft{
+ float: left;
+  border-right: 2px solid black;
+  
+}
+
+.meniuleftActive{
+ float: left;
+ background-color: #1c1d22
+;
+ border-right: 2px solid black;
+  color: white;
+}
+
+.meniuright{
+  float: right;
+   border-left: 2px solid black;
+ 
+}
+.continut
+{
+	
+    margin-top: 15px;
+    margin-bottom: 40px;
+	padding-right: 20px;
+    padding-left: 20px;
+    background: #171717;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border: 1px solid #323232;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+    border-radius: 7px;
+}
+
+.continutContainter
+{   padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
+	display: block;
+}
+.box
+{    background-color: #1c1d22;
+    padding: 15px;
+    border: 1px solid #323232;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+    overflow:auto;
+    clear: both;
+    margin: 0 0 10px;
+	border-radius: 7px;
+	
+}
+.box2PentruRating
+{     display:inline;
+}
+.melodie
+{
+	 background-color:  #404040;
+	border-radius: 3px;
+	margin-top: 15px;
+	padding: 10px;
+}
+.melodie:hover
+{
+	 background-color:  #595959;
+	 color: #ffffff;
+	
+}
+
+.melodie a
+{   color: white;
+	text-decoration: none;
+}
+.cover {
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+.buttonTrimitere
+{
+	float: right;
+	border-radius: 8px;
+	background-color: #4169E1;
+	text-align: center;
+  text-decoration: none;
+	color: white;
+  padding: 15px 32px;
+}
+.buttonTrimitereleft
+{
+	float: left;
+	border-radius: 8px;
+	background-color: #4169E1;
+	text-align: center;
+  text-decoration: none;
+	color: white;
+  padding: 15px 32px;
+}
+.buttonTrimitereleftCumargine
+{   margin-left: 10px;
+	float: left;
+	border-radius: 8px;
+	background-color: #4169E1;
+	text-align: center;
+  text-decoration: none;
+	color: white;
+  padding: 15px 32px;
+}
+.linkCategori
+{
+	text-decoration:none;
+	color: white;
+}
+
+.textCategoriRecenzie
+{   
+   font-size: 150%;
+}
+.textMetadate
+{
+	text-align: left;
+	font-size:24px ;
+}
+.casetaMetadate
+{
+	width: 100%;
+  padding: 10px 10px;
+  margin-top: 9px ;
+   margin-bottom: 9px ;
+  border-radius: 10px;
+  	font-size:15px ;
+}
+.buttonMetadate
+{
+	float: right;
+	background-color: black;
+	padding: 4px 8px  4px 8px;
+	border-radius: 10px;
+	  text-align: center;
+
+}
+input[type="file"] {
+    display: none;
+}
+.textCentrat
+{
+	text-align:center;
+}
+.butonOrdine
+{   background-color:  #595959;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #1c1d22;
+}
+.butonOrdine-content
+{
+	display: none;
+  	position: absolute;
+    background-color: black;
+	min-width: 117px;
+ 
+ 
+  
+}
+.butonOrdine-content button {
+  color: white;
+  font-size:17px;
+   background-color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
+
+.divOrdine:hover .butonOrdine-content {display: block;}
+.butonOrdine-content button:hover {background-color: #b3b3b3;
+color:black;}
+.divOrdine:hover .butonOrdine{
+	background-color: #4d0f00;
+	border: 2px solid black;
+}
+
+.boxOrdine
+{
+  display: flex;
+  justify-content:  right ;
+  
+} 

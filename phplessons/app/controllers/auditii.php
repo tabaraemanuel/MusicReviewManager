@@ -2,7 +2,6 @@
 class auditii extends Controller
 {
 
-
     public function index()
     {
         session_start();

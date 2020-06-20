@@ -75,6 +75,10 @@ class login extends Controller
                         } elseif ($passwordCheck == true) {
                             session_start();
                             $_SESSION['username'] = $row["username"];
+                            if ($_SESSION['username'] === 'admin') {
+                                header("Location: http://localhost/phplessons/public/admin");
+                                exit();
+                            }
                             $toSend =  $row["username"];
                             header("Location: http://localhost/phplessons/public/main");
                         } else {
