@@ -26,6 +26,29 @@ class song extends Controller
         $updateStmt->close();
     }
 
+    private function updateEvents($id, $conn, $username)
+    {
+
+        $query = 'INSERT INTO events (content,date,link) values (?,?,?)';
+        $updateStmt = mysqli_stmt_init($conn);
+        $date = date('Y-m-d', time());
+        if (!mysqli_stmt_prepare($updateStmt, $query)) {
+            $msg = "Database Error!";
+            header("Location: http://localhost/phplessons/public/song/error/" . $msg);
+            exit();
+        }
+        $link = "http://localhost/phplessons/public/song/" . $id;
+        $content = $username . " a comentat un cantec.";
+        mysqli_stmt_bind_param($updateStmt, "sss", $content, $date, $link);
+        if (!$updateStmt->execute()) {
+            $msg = "Database Error!";
+            header("Location: http://localhost/phplessons/public/song/error/" . $msg);
+            exit();
+        }
+        $updateStmt->free_result();
+        $updateStmt->close();
+    }
+
     public function sendComment($id)
     {
         $id = (int) $id;
@@ -61,6 +84,7 @@ class song extends Controller
             exit();
         }
         $this->updateAprecieri($rating, $conn, $id);
+        $this->updateEvents($id, $conn, $_SESSION['username']);
         $selectStmt->free_result();
         $selectStmt->close();
         $msg = "succes";
@@ -131,6 +155,7 @@ class song extends Controller
                     }
                     $comments = $this->getcomments($id);
                     $data = $this->getdata($id);
+
                     $this->view('song', ['comments' => $comments, 'data' => $data]);
                 }
             } else {

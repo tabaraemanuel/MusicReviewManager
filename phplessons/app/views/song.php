@@ -10,6 +10,9 @@ if (!empty($data['data'])) {
   $songImage = $data['data']['songImage'];
   $genre = $data['data']['genre'];
   $popularity = $data['data']['popularity'];
+  $albumNamesec = preg_replace('/\s+/', '_', $albumName);
+  $artistNamesec = preg_replace('/\s+/', '_', $artists);
+  $genresec = preg_replace('/\s+/', '_', $genre);
 }
 header("Content-Type: text/html");
 ?>
@@ -33,10 +36,10 @@ header("Content-Type: text/html");
         <img class="cover" src="<?php echo (isset($songImage)) ? $songImage : ''; ?>" alt="AlbumCover">
 
         <p class="textCentrat">
-          Artist:<a href="#1" class="linkCategori"> <?php echo (isset($artists)) ? $artists : ''; ?></a><br>
-          Categorie:<a href="#1" class="linkCategori"> <?php echo (isset($genre)) ? $genre : ''; ?></a> <br>
-          An:<a href="#1" class="linkCategori"> <?php echo (isset($releaseDate)) ? $releaseDate : ''; ?></a> <br>
-          Album:<a href="Album.php" class="linkCategori"> "<?php echo (isset($albumName)) ? $albumName : ''; ?>"</a> <br>
+          Artist:<a href="/phplessons/public/recomandate/index/artists/<?php echo (isset($artistNamesec)) ? $artistNamesec : ''; ?>" class="linkCategori"> <?php echo (isset($artists)) ? $artists : ''; ?></a><br>
+          Categorie:<a href="/phplessons/public/recomandate/index/genre/<?php echo (isset($genresec)) ? $genresec : ''; ?>" class="linkCategori"> <?php echo (isset($genre)) ? $genre : ''; ?></a> <br>
+          An:<a class="linkCategori"> <?php echo (isset($releaseDate)) ? $releaseDate : ''; ?></a> <br>
+          Album:<a href="/phplessons/public/recomandate/index/albumName/<?php echo (isset($albumNamesec)) ? $albumNamesec : ''; ?>" class="linkCategori"> "<?php echo (isset($albumName)) ? $albumName : ''; ?>"</a> <br>
           Popularitate:<?php echo (isset($popularity)) ? $popularity : ''; ?>
 
 

@@ -58,9 +58,9 @@
       <a href="Song.php" class="linkCategori"> <img class="coverRecenzie" src="' . $songImage . '" alt="user"></a>
       <p class="textCentrat">
         Melodie:<a href="song/' . $id . '" class="linkCategori">' . $songName . '</a> <br>
-        Album:<a href="recomandate/index/albumName/' . $albumNamesec . '" class="linkCategori"> ' . $albumName . '</a> <br>
-        Artist:<a href="recomandate/index/artists/' . $artistssec . '" class="linkCategori">' . $artists . '</a><br>
-        Categorie:<a href="recomandate/index/genre/' . $genresec . '" class="linkCategori">' . $genre . '</a> <br>
+        Album:<a href="/phplessons/public/recomandate/index/albumName/' . $albumNamesec . '" class="linkCategori"> ' . $albumName . '</a> <br>
+        Artist:<a href="/phplessons/public/recomandate/index/artists/' . $artistssec . '" class="linkCategori">' . $artists . '</a><br>
+        Categorie:<a href="/phplessons/public/recomandate/index/genre/' . $genresec . '" class="linkCategori">' . $genre . '</a> <br>
         An:<a class="linkCategori"> ' . $releaseDate . '</a> <br>
       </p>
     </div>';
@@ -89,8 +89,8 @@
           echo '<div class="boxMargin">
           <a href="Song.php" class="linkCategori"> <img class="coverRecenzie" src="' . $image . '" alt="user"></a>
           <p class="textCentrat">
-            Album:<a href="recomandate/index/albumName/' . $albumNamesec . '" class="linkCategori"> ' . $albumName . '</a> <br>
-            Artist:<a href="recomandate/index/artists/' . $artistssec . '" class="linkCategori">' . $artists . '</a><br>
+            Album:<a href="/phplessons/public/recomandate/index/albumName/' . $albumNamesec . '" class="linkCategori"> ' . $albumName . '</a> <br>
+            Artist:<a href="/phplessons/public/recomandate/index/artists/' . $artistssec . '" class="linkCategori">' . $artists . '</a><br>
             An:<a class="linkCategori"> ' . $releaseDate . '</a> <br>
           </p>
         </div>';
@@ -128,9 +128,9 @@
           <a href="Song.php" class="linkCategori"> <img class="coverRecenzie" src="' . $songImage . '" alt="user"></a>
           <p class="textCentrat">
             Melodie:<a href="song/' . $id . '" class="linkCategori">' . $songName . '</a> <br>
-            Album:<a href="recomandate/index/albumName/' . $albumNamesec . '" class="linkCategori"> ' . $albumName . '</a> <br>
-            Artist:<a href="recomandate/index/artists/' . $artistssec . '" class="linkCategori">' . $artists . '</a><br>
-            Categorie:<a href="recomandate/index/genre/' . $genresec . '" class="linkCategori">' . $genre . '</a> <br>
+            Album:<a href="/phplessons/public/recomandate/index/albumName/' . $albumNamesec . '" class="linkCategori"> ' . $albumName . '</a> <br>
+            Artist:<a href="/phplessons/public/recomandate/index/artists/' . $artistssec . '" class="linkCategori">' . $artists . '</a><br>
+            Categorie:<a href="/phplessons/public/recomandate/index/genre/' . $genresec . '" class="linkCategori">' . $genre . '</a> <br>
             An:<a class="linkCategori"> ' . $releaseDate . '</a> <br>
           </p>
         </div>';
@@ -138,8 +138,15 @@
       }
       ?>
     </div>
-    <div class="boxFlex">
-      <a href="#" class="buttonDow">Descarca Statistici</a>
+
+    <div class="box">
+      <h1 class="textCentrat">Descarca Statistici:</h1>
+      <br>
+      <br>
+      <div class="boxFlexGol">
+        <a href="/phplessons/public/main/getcsv" class="buttonDowL">Format CSV</a>
+        <a href="/phplessons/public/main/getpdf" class="buttonDowR">Format PDF</a>
+      </div>
     </div>
   </div>
 </div>

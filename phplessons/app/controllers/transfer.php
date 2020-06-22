@@ -62,7 +62,7 @@ class transfer extends Controller
         $this->view('transfer', ['error' => $error]);
     }
 
-    private function getid($song, $album, $conn)
+    private function getid($song, $artists, $conn)
     {
         $selectQuery = "SELECT id from metadata where songName =? and artists=?";
         $selectStmt = mysqli_stmt_init($conn);
@@ -71,7 +71,7 @@ class transfer extends Controller
             header("Location: http://localhost/phplessons/public/transfer/error/" . $msg);
             exit();
         }
-        mysqli_stmt_bind_param($selectStmt, "ss", $song, $album);
+        mysqli_stmt_bind_param($selectStmt, "ss", $song, $artists);
         $selectStmt->execute();
         $selectStmt->store_result();
         $numberofrows = $selectStmt->num_rows;
@@ -175,7 +175,7 @@ class transfer extends Controller
                 header("Location: http://localhost/phplessons/public/transfer/error/" . $msg);
                 exit();
             } else {
-                $id = $this->getid($song, $id, $conn);
+                $id = $this->getid($songName, $artists, $conn);
                 $query = "INSERT INTO favorites (username,songid,playlistTitle,creator,song,artists,album) VALUES (?,?,?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $query)) {

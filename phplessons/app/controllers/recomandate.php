@@ -17,7 +17,8 @@ class recomandate extends Controller
                 'artists' => $row['artists'],
                 'releaseDate' => $row['releaseDate'],
                 'popularity' => $row['popularity'],
-                'duration' => $row['duration']
+                'duration' => $row['duration'],
+                'genre' => $row['genre']
             );
             array_push($myres, $item);
         }
@@ -25,15 +26,29 @@ class recomandate extends Controller
         return $myres;
     }
 
-    public function index($camp = " ", $value = -1)
+    private function sort($data, $criterion)
+    {
+        usort($data, function ($a, $b) use ($criterion) {
+            return $a[$criterion] < $b[$criterion];
+        });
+        return $data;
+    }
+
+    public function index($camp = " ", $value = -1, $sort = false)
     {
 
         session_start();
         $data = array();
         $value = str_replace('_', ' ', $value);
         if (isset($_SESSION['username'])) {
+
             if ($value != -1) {
-                $data = $this->getrelated($camp, $value);
+                $arr = $this->getrelated($camp, $value);
+                if (gettype($sort) != gettype(false) && count($arr) > 1) {
+                    $arr = $this->sort($arr, $sort);
+                }
+                $data['arr'] = $arr;
+                $data['camp'] = $camp;
             }
             $this->view('recomandate', $data);
         } else {

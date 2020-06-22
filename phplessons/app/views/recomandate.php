@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <?php
 header("Content-Type: text/html");
+if (isset($data['camp']) && isset($data['arr']) && (count($data['arr']) > 0)) {
+  $camp = $data['camp'];
+  $value = $data['arr'][0][$camp];
+  $value = preg_replace('/\s+/', '_', $value);
+}
 ?>
 <html lang=ro>
 <title>Melodii inrudite</title>
@@ -28,9 +33,9 @@ header("Content-Type: text/html");
         <div class="divOrdine">
           <button class="butonOrdine">Ordoneaza:</button>
           <div class="butonOrdine-content">
-            <button>Durata</button>
-            <button>An</button>
-            <button>Popularitate</button>
+            <a href="http://localhost/phplessons/public/recomandate/index/<?php echo isset($camp) ? $camp : " " ?>/<?php echo isset($value) ? $value : " " ?>/duration">Durata</a>
+            <a href="http://localhost/phplessons/public/recomandate/index/<?php echo isset($camp) ? $camp : " " ?>/<?php echo isset($value) ? $value : " " ?>/releaseDate">An</a>
+            <a href="http://localhost/phplessons/public/recomandate/index/<?php echo isset($camp) ? $camp : " " ?>/<?php echo isset($value) ? $value : " " ?>/popularity">Popularitate</a>
           </div>
         </div>
       </div>
@@ -38,18 +43,18 @@ header("Content-Type: text/html");
 
       <?php
       $max = 0;
-      if (isset($data)) {
-        $max = count($data);
+      if (isset($data['arr'])) {
+        $max = count($data['arr']);
       }
       for ($i = 0; $i < $max; $i++) {
-        if (!empty($data)) {
-          $id = $data[$i]['id'];
-          $releaseDate = $data[$i]['releaseDate'];
-          $songName = $data[$i]['songName'];
-          $albumName = $data[$i]['albumName'];
-          $artists = $data[$i]['artists'];
-          $popularity = $data[$i]['popularity'];
-          $duration =  $data[$i]['duration'];
+        if (!empty($data['arr'])) {
+          $id = $data['arr'][$i]['id'];
+          $releaseDate = $data['arr'][$i]['releaseDate'];
+          $songName = $data['arr'][$i]['songName'];
+          $albumName = $data['arr'][$i]['albumName'];
+          $artists = $data['arr'][$i]['artists'];
+          $popularity = $data['arr'][$i]['popularity'];
+          $duration =  $data['arr'][$i]['duration'];
           echo '<div class="melodie">
           <a href="/phplessons/public/song/' . $id . '">' . $songName . ' - ' . $artists . ' (' . $duration . ' ms)</a>
         </div>';

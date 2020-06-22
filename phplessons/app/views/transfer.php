@@ -16,17 +16,6 @@ header("Content-Type: text/html");
       <h1 allign="center">Favorite</h1>
     </div>
     <div class="box">
-      <div class="boxOrdine">
-        <div class="divOrdine">
-          <button class="butonOrdine">Ordoneaza:</button>
-          <div class="butonOrdine-content">
-            <button>Durata</button>
-            <button>An</button>
-            <button>Popularity</button>
-          </div>
-        </div>
-      </div>
-
       <?php
       if (!empty($data)) {
         $count = count($data);
@@ -34,9 +23,15 @@ header("Content-Type: text/html");
           $id = $data[$repeat]['id'];
           $song = $data[$repeat]['song'];
           $creator = $data[$repeat]['creator'];
-          echo '<div class="melodie">
-  <a class="fullDiv">' . $song . '-' . $creator . '</a>
+          if ($id === -1) {
+            echo '<div class="melodie">
+  <a class="fullDiv">' . $song . '-' . $creator .  '</a>
 </div>';
+          } else {
+            echo  '<div class="melodie">
+  <a href= "/phplessons/public/song/' . $id . '" class="fullDiv">' . $song . '-' . $creator .  '</a>
+</div>';
+          }
           if ($id != -1) {
             echo '<form action="http://localhost/phplessons/public/metadata" class="auth__input__container" method="POST">
     <input hidden class="auth__input" name="meta-send" value=' . '\'' . $id . '\'' . ' />

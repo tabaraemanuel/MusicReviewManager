@@ -6,7 +6,7 @@ header("Content-Type: text/html");
 
 <head>
   <title>Admin</title>
-  <link rel="stylesheet" type="text/css" href="css/Admin.css">
+  <link rel="stylesheet" type="text/css" href="/phplessons/public/css/Admin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -28,20 +28,19 @@ header("Content-Type: text/html");
     <div class="box">
       <h2 class="textCentrat">Sterge utilizator</h2><br>
       <div class="boxMargin">
-
-        <div class="numeU">
-          <span class="textNumeU"> Numele Contului </span><a class="butonStergere"><i class="fa fa-trash"></i> Sterge</a>
-        </div>
-
-        <div class="numeU">
-          <span class="textNumeU"> Numele Contului </span><a class="butonStergere"><i class="fa fa-trash"></i> Sterge</a>
-        </div>
-        <div class="numeU">
-          <span class="textNumeU"> Numele Contului </span><a class="butonStergere"><i class="fa fa-trash"></i> Sterge</a>
-        </div>
-        <div class="numeU">
-          <span class="textNumeU"> Numele Contului </span><a class="butonStergere"><i class="fa fa-trash"></i> Sterge</a>
-        </div>
+        <?php
+        if (!empty($data)) {
+          if (!empty($data['users'])) {
+            $count = count($data['users']);
+            $users = $data['users'];
+            for ($j = 0; $j < $count; $j++) {
+              echo '<div class="numeU">
+                    <span class="textNumeU">' . $users[$j]['username'] . '</span><a href="/phplessons/public/admin/deleteusers/' . $users[$j]['username'] . '" class="butonStergere"><i class="fa fa-trash"></i> Sterge</a>
+                  </div> ';
+            }
+          }
+        }
+        ?>
       </div>
     </div>
 
@@ -52,16 +51,13 @@ header("Content-Type: text/html");
 
         <div class="textMetadate">
 
-          <form>
-            AlbumName: <input class="casetaMetadate" type="text" name="sname"><br>
-            ReleaseDate: <input class="casetaMetadate" type="date" name="birthday"> <br>
-            Artists: <input class="casetaMetadate" type="text" name="sname"><br>
-            AlbumImageURL: <input class="casetaMetadate" type="url" name="imageURL"> <br>
-            Genre:<input class="casetaMetadate" type="text" name="sname"><br>
-
+          <form action="http://localhost/phplessons/public/admin/saveAlbum" method="POST">
+            AlbumName: <input class="casetaMetadate" type="text" name="album"><br>
+            ReleaseDate: <input class="casetaMetadate" type="date" name="release"> <br>
+            Artists: <input class="casetaMetadate" type="text" name="artists"><br>
+            AlbumImageURL: <input class="casetaMetadate" type="url" name="image"> <br>
             <br>
             <button class="buttonTrimitere" type="submit">Salveaza</button>
-
           </form>
 
         </div>
@@ -75,20 +71,17 @@ header("Content-Type: text/html");
 
         <div class="textMetadate">
 
-          <form>
-            Explicit: <input class="casetaMetadate" type="text" name="explicit"><br>
-            Id: <input class="casetaMetadate" type="text" name="id"><br>
-            ReleaseDate: <input class="casetaMetadate" type="date" name="birthday"> <br>
-            SongName: <input class="casetaMetadate" type="text" name="sname"><br>
-            AlbumName: <input class="casetaMetadate" type="text" name="sname"><br>
-            Artists: <input class="casetaMetadate" type="text" name="sname"><br>
+          <form action="http://localhost/phplessons/public/admin/saveSong" method="POST">
+            ReleaseDate: <input class="casetaMetadate" type="date" name="release"> <br>
+            SongName: <input class="casetaMetadate" type="text" name="song"><br>
+            AlbumName: <input class="casetaMetadate" type="text" name="album"><br>
+            Artists: <input class="casetaMetadate" type="text" name="artists"><br>
             AlbumImageURL: <input class="casetaMetadate" type="url" name="imageURL"> <br>
-            Genre:<input class="casetaMetadate" type="text" name="sname"><br>
-            Adnotari:<input class="casetaMetadate" type="text" name="sname"><br>
-            Isrc:<input class="casetaMetadate" type="number" name="sname"><br>
+            Genre:<input class="casetaMetadate" type="text" name="genre"><br>
+            Adnotari:<input class="casetaMetadate" type="text" name="adnotari"><br>
+            Isrc:<input class="casetaMetadate" type="number" name="isrc"><br>
             <label>Duration:</label>
-
-            <input class="casetaMetadate" type="number" name="quantity" min="0" placeholder="Milisecunde"> <br>
+            <input class="casetaMetadate" type="number" name="duration" min="0" placeholder="Milisecunde"> <br>
             <button class="buttonTrimitere" type="submit">Salveaza</button>
 
           </form>
@@ -104,17 +97,32 @@ header("Content-Type: text/html");
 
         <div class="textSql">
 
-          <form>
+          <form action="http://localhost/phplessons/public/admin/execsql" method="POST">
 
-            <textarea class="casetaSQl" name="sqlComand" rows="3" cols="50" placeholder="Intorduceti comanda sql:">
+            <textarea class="casetaSQl" name="sqlCommmand" rows="3" cols="50" placeholder="Intorduceti comanda sql:">
   </textarea>
-            <button class="buttonExecuta" type="submit">Executa</button>
+            <button href="" class="buttonExecuta" type="submit">Executa</button>
 
 
           </form>
         </div>
-        <pre class="rezultat">Rezultat
-mere</pre>
+        <pre class="rezultat">
+
+
+
+ <?php
+
+  if (isset($data['sqlrez'])) {
+    print_r(array_values($data['sqlrez']));
+  }
+
+
+  if (!empty($data['msg'])) {
+
+    $msg = $data['msg'];
+    $msg = str_replace('_', ' ', $msg);
+    echo  "Rezultat " . $msg;
+  } ?></pre>
 
       </div>
     </div>
