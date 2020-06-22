@@ -1,9 +1,11 @@
 <?php
+//necessary for metadata
 require_once 'metadataModel.php';
-class post{
-    
+class post
+{
+
     private $conn;
-    private $table='metadata';
+    private $table = 'metadata';
 
     public $object;
     public $id;
@@ -22,7 +24,8 @@ class post{
         $this->conn = $db;
     }
 
-    public function read($id){
+    public function read($id)
+    {
         $query = "SELECT * FROM metadata WHERE id = '$id'";
         $stmt = $this->conn->prepare($query);
         //$stmt->bind_param("s",$id);

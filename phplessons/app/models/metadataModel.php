@@ -1,5 +1,7 @@
 <?php
-class metadataModel{
+//model for metadata
+class metadataModel
+{
     public $id;
     public $isExplicit;
     public $releaseDate;
@@ -12,5 +14,4 @@ class metadataModel{
     public $duration;
     public $isrc;
     public $popularity;
-
 }

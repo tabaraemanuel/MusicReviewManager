@@ -2,6 +2,7 @@
 class metadata extends Controller
 {
 
+    //gets metadata from the DB for a certain ID
     public function getData($id = '')
     {
         header('Acces-Control-Allow-Origin: *');
@@ -64,7 +65,7 @@ class metadata extends Controller
         }
     }
 
-    //TODO: Complete params with only default values
+    //saves the metadata, with the data inputted
     public function save()
     {
         if (isset($_REQUEST['meta-submit'])) {
@@ -94,14 +95,14 @@ class metadata extends Controller
                 header("Location: http://localhost/phplessons/public/main");
                 exit();
             } else {
-                $query = "UPDATE metadata SET releaseDate = ?,songName = ?,albumName = ?,artists = ?, songImage = ?,genre = ?,addonations = ? WHERE ID = ?";
+                $query = "UPDATE metadata SET duration = ?,releaseDate = ?,songName = ?,albumName = ?,artists = ?, songImage = ?,genre = ?,addonations = ? WHERE ID = ?";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $query)) {
                     $msg = "Database Error!";
                     header("Location: http://localhost/phplessons/public/main");
                     exit();
                 } else {
-                    mysqli_stmt_bind_param($stmt, "sssssssi", $releaseDate, $songName, $albumName, $artists, $songImage, $genre, $addonatations, $id);
+                    mysqli_stmt_bind_param($stmt, "isssssssi", $duration, $releaseDate, $songName, $albumName, $artists, $songImage, $genre, $addonatations, $id);
                     mysqli_stmt_execute($stmt);
                     if (mysqli_affected_rows($conn) > 0) {
                         $msg = "Succes!";

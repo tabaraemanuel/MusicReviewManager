@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <title>Signup</title>
-    <meta charset = utf-8>
-<link rel="stylesheet" href="http://localhost/phplessons/public/css/index.css">
-    </head>
+
+<head>
+  <title>Signup</title>
+  <meta charset=utf-8>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
 <body>
-<div class="auth__container">
-        <div class="auth__title">Register</div>
-        <div class="auth__description">Create your first account</div>
+  <div class="containerLogin">
+    <div class="continutcontainerLogin">
+      <div class="box">
+        <h1 class="textCentrat">Register</h1>
+      </div>
+      <div class="box">
+        <div>
+          <h2 class="textCentrat">Create your first account</h2>
+        </div>
         <?php
         session_start();
-        if(isset($_SESSION["registerError"])){
+        if (isset($_SESSION["registerError"])) {
           $error = $_SESSION["registerError"];
-          echo "<div class=\"auth__description\">$error</div>";
+          echo "<p>$error</p>";
         }
         session_destroy();
         ?>
         <form method="POST" action="http://localhost/phplessons/public/register/registerUser" class="auth__input__container">
-          <input name="uid" class="auth__input" placeholder="Username" />
-          <input name="password" type="password" class="auth__input" placeholder="Password" />
-          <input name="email" type='email' class="auth__input" placeholder="Email adress" /><br />
-          <button class="auth__submit" type="submit" name="signup_submit">Submit</button>
-          <a href="http://localhost/phplessons/public/login" class="auth__redirect">Login</a>
+          <input name="uid" class="casetaInput" placeholder="Username" />
+          <input name="password" type="password" class="casetaInput" placeholder="Password" />
+          <input name="email" type='email' class="casetaInput" placeholder="Email adress" /><br />
+          <div class="boxFlex">
+            <button class="buttonDow" type="submit" name="signup_submit">Submit</button>
+          </div>
+          <div class="boxFlex">
+            <a href="http://localhost/phplessons/public/login" class="buttonDow2">Login page</a>
+          </div>
+
         </form>
       </div>
+    </div>
+  </div>
 </body>
+
 </html>

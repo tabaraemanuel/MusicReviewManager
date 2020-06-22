@@ -2,6 +2,7 @@
 class recomandate extends Controller
 {
 
+    //gets all songs by a certan criteria
     private function getrelated($camp, $value)
     {
         include_once  "../app/API/newdb.php";
@@ -26,6 +27,7 @@ class recomandate extends Controller
         return $myres;
     }
 
+    //sorts by a certain criteria
     private function sort($data, $criterion)
     {
         usort($data, function ($a, $b) use ($criterion) {

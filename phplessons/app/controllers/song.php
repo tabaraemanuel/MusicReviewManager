@@ -2,7 +2,7 @@
 class song extends Controller
 {
 
-
+    //updates the score of a song
     private function updateAprecieri($rating, $conn, $id)
     {
         $rating = (int) $rating;
@@ -25,7 +25,7 @@ class song extends Controller
         $updateStmt->free_result();
         $updateStmt->close();
     }
-
+    //updates the events table for the rss feed
     private function updateEvents($id, $conn, $username)
     {
 
@@ -49,6 +49,9 @@ class song extends Controller
         $updateStmt->close();
     }
 
+
+
+    //posts the comment to the database
     public function sendComment($id)
     {
         $id = (int) $id;
@@ -93,7 +96,7 @@ class song extends Controller
     }
 
 
-
+    //gets the data about a song for the view
     private function getdata($id)
     {
         include_once  "../app/API/newdb.php";
@@ -120,7 +123,7 @@ class song extends Controller
     }
 
 
-
+    //gets all the comments of a song
     private function getcomments($id)
     {
         include_once  "../app/API/newdb.php";
@@ -140,7 +143,7 @@ class song extends Controller
         return $myres;
     }
 
-
+    //calls the necessary functions and sends the data to the view
     public function index($id)
     {
         session_start();

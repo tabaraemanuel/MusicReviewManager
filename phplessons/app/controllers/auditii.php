@@ -1,7 +1,7 @@
 <?php
 class auditii extends Controller
 {
-
+    //sends a conn to the view, getting data NEEDS to be done there
     public function index()
     {
         session_start();

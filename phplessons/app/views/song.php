@@ -20,9 +20,8 @@ header("Content-Type: text/html");
 
 <head>
   <title>Melodie</title>
-  <link rel="stylesheet" type="text/css" href="http://localhost/phplessons/public/css/Song.css">>
+  <link rel="stylesheet" type="text/css" href="http://localhost/phplessons/public/css/Song.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="import" href="Meniu.php">
 </head>
 
 <body>
@@ -51,7 +50,7 @@ header("Content-Type: text/html");
           echo '<form action="http://localhost/phplessons/public/metadata" class="auth__input__container" method="POST">
     <input hidden class="auth__input" name="meta-send" value=' . '\'' . $id . '\'' . ' />
     <br/>
-    <button  name="Metadata" class=\"auth__submit" type="submit">Metadata</button>
+    <button  name="Metadata"  type="submit">Metadata</button>
 </form> <br>';
         } ?>
       </div>
@@ -102,7 +101,9 @@ header("Content-Type: text/html");
         }
 
         ?>
-
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

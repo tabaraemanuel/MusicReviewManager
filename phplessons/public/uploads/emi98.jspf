@@ -20,6 +20,12 @@
        "title"         : "Nightmare",
        "creator"       : "Avenged Sevenfold",
        "album"         : "Nightmare"
+       },
+	{
+       "location"      : ["http://example.com/thegirlismine.mp3"], 
+       "title"         : "Carry On",
+       "creator"       : "Avenged Sevenfold",
+       "album"         : "Modified Album Name"
        }
      ]
    }

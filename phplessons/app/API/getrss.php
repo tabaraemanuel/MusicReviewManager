@@ -1,4 +1,5 @@
 <?php
+//generates rss feed
 // Create connection
 $servername = "localhost";
 $dbusername = "root";

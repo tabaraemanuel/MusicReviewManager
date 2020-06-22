@@ -1,6 +1,9 @@
 <?php
 class admin extends Controller
 {
+
+
+    //retrives all users from the DB
     private function getusers()
     {
 
@@ -23,7 +26,7 @@ class admin extends Controller
         $conn->close();
         return $myres;
     }
-
+    //sends an insert song query to the DB
     public function saveSong()
     {
         session_start();
@@ -49,7 +52,7 @@ class admin extends Controller
         $msg = $result ? "Insert_song_succesful!" : "Insert_song_failed!";
         $this->index($msg);
     }
-
+    //sends an insert album query to the DB
     public function saveAlbum()
     {
         session_start();
@@ -69,7 +72,7 @@ class admin extends Controller
         $this->index($msg);
     }
 
-
+    //sends whatever query the admin requested and returns if it succeded or the results 
     public function execsql()
     {
         session_start();
@@ -102,7 +105,7 @@ class admin extends Controller
         $new['sqlrez'] = $myres;
         $this->view('admin', $new);
     }
-
+    //sends delete user query to the db
     public function deleteusers($username)
     {
         if (!isset($_SESSION['username'])) {
@@ -125,7 +128,7 @@ class admin extends Controller
 
 
 
-
+    //default function which fetches the neccesary data for the view
     public function index($msg = "")
     {
         if (!isset($_SESSION['username'])) {

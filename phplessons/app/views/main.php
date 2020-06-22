@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
   <?php
   header("Content-Type: text/html");
   ?>
-  <html lang=en>
 
 
-  <title>Album</title>
+  <title>Main</title>
   <link rel="stylesheet" type="text/css" href="http://localhost/phplessons/public/css/Main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>

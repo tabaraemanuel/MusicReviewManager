@@ -1,4 +1,5 @@
 <?php
+//breaks the url, checks if a controller exists and redirects to it
 class App
 {
     protected $controller = 'login';

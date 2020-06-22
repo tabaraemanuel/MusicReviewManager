@@ -2,6 +2,8 @@
 class main extends Controller
 {
 
+
+    //gets the data from the DB, creates the pdf file and sends downloads it
     public function getpdf()
     {
         session_start();
@@ -57,6 +59,8 @@ Percentage of users that commented = " . $engagement . "%.";
         }
     }
 
+
+    //gets the data from the DB, creates the csv file and downloads it
     public function getcsv()
     {
         session_start();
@@ -111,7 +115,7 @@ Percentage of users that commented = " . $engagement . "%.";
 
 
 
-
+    //gets DB data about the most recent albums, returns an array
     private function getalbums()
     {
         include_once  "../app/API/newdb.php";
@@ -133,7 +137,7 @@ Percentage of users that commented = " . $engagement . "%.";
     }
 
 
-
+    //gets the top 5 most popular tracks from the DB, returns an array
     private function getpopular()
     {
         include_once  "../app/API/newdb.php";
@@ -159,6 +163,7 @@ Percentage of users that commented = " . $engagement . "%.";
         return $myres;
     }
 
+    //gets the top 5 most recent tracks, return array
     private function getrecenttracks()
     {
         include_once  "../app/API/newdb.php";

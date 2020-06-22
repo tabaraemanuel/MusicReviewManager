@@ -1,6 +1,7 @@
 <?php
 function getconn()
 {
+    //returns a db conenctions
     header('Acces-Control-Allow-Origin: *');
     header('Content-Type: application/json');
     $servername = "localhost";

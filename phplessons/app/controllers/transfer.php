@@ -5,6 +5,7 @@ use function PHPSTORM_META\type;
 class transfer extends Controller
 {
 
+    //gets the favorites songs of a user, checks if they are in the database
     private function getfavorites($username)
     {
         include_once  "../app/API/newdb.php";
@@ -62,6 +63,7 @@ class transfer extends Controller
         $this->view('transfer', ['error' => $error]);
     }
 
+    //gets the id of a song, if it exists
     private function getid($song, $artists, $conn)
     {
         $selectQuery = "SELECT id from metadata where songName =? and artists=?";
@@ -86,6 +88,8 @@ class transfer extends Controller
         return $result;
     }
 
+
+    //deletes the previous playlist of a user
     private function deleteFile($conn, $username)
     {
         $deleteQuery = "DELETE FROM favfiles where username =?";
@@ -106,7 +110,7 @@ class transfer extends Controller
     }
 
 
-
+    //sends the json to the database
     private function sendFile($file, $conn)
     {
         $username = $_SESSION['username'];
@@ -129,7 +133,7 @@ class transfer extends Controller
 
 
 
-
+    //posts the songs of the playlist to the table
     private function post_playlist($tracks, $playlistTitle, $creator, $content)
     {
         header('Acces-Control-Allow-Origin: *');
@@ -207,7 +211,7 @@ class transfer extends Controller
 
 
 
-
+    //sends the json data
     public function import()
     {
         session_start();
@@ -276,7 +280,7 @@ class transfer extends Controller
         }
     }
 
-
+    //gets the json data from the db
     private function getjson()
     {
         header('Acces-Control-Allow-Origin: *');
@@ -316,7 +320,7 @@ class transfer extends Controller
     }
 
 
-
+    //downloads the file
     public function export()
     {
         session_start();

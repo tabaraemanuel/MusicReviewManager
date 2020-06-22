@@ -12,7 +12,7 @@ $post = new post($db);
 
 $result = $post->read("");
 $num = $result->rowCount();
-
+//reads data for metadata
 if ($num > 0) {
     $songs_arr = array();
     $songs_arr['data'] = array();
@@ -40,4 +40,3 @@ if ($num > 0) {
         'message' => 'No tracks found!'
     ));
 }
-?>

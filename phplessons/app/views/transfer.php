@@ -2,10 +2,10 @@
 <?php
 header("Content-Type: text/html");
 ?>
-<html>
+<html lang="en">
 
 <head>
-  <title>Album</title>
+  <title>Favorite</title>
   <link rel="stylesheet" type="text/css" href="css/Transfer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -13,7 +13,7 @@ header("Content-Type: text/html");
 <div class="continutContainter">
   <div class="continut">
     <div class="box">
-      <h1 allign="center">Favorite</h1>
+      <h1>Favorite</h1>
     </div>
     <div class="box">
       <?php
@@ -36,7 +36,7 @@ header("Content-Type: text/html");
             echo '<form action="http://localhost/phplessons/public/metadata" class="auth__input__container" method="POST">
     <input hidden class="auth__input" name="meta-send" value=' . '\'' . $id . '\'' . ' />
     <br/>
-    <button  name="Metadata" class=\"auth__submit" type="submit">Metadata</button>
+    <button  name="Metadata" class="auth__submit" type="submit">Metadata</button>
 </form> <br>';
           }
         }

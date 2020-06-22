@@ -20,7 +20,7 @@ class login extends Controller
     {
         $this->view("main", ['username' => $username]);
     }
-
+    //logins user or returns an error message
     public function loginFunc()
     {
         if (isset($_REQUEST['login-submit'])) {

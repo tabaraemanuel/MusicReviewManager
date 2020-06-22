@@ -101,7 +101,7 @@ header("Content-Type: text/html");
 
             <textarea class="casetaSQl" name="sqlCommmand" rows="3" cols="50" placeholder="Intorduceti comanda sql:">
   </textarea>
-            <button href="" class="buttonExecuta" type="submit">Executa</button>
+            <button class="buttonExecuta" type="submit">Executa</button>
 
 
           </form>
