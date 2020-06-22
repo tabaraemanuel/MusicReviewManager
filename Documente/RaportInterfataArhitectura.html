@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="keywords" content="project, web, infoiasi">
+  <title>Raport Aplicatie</title>
+  <link rel="stylesheet" href="Raport.css">
+
+</head>
+
+<body>
+  <header>
+    <h1>Raport Aplicatie</h1>
+  </header>
+  <section typeof="sa:AuthorsList">
+    <h2>Autori</h2>
+    <ul>
+      <li property="schema:author" typeof="sa:ContributorRole">
+        <span property="schema:author" typeof="schema:Person"></span>
+        <meta property="schema:givenName" content="Emanuel">
+        <meta property="schema:familyName" content="Tabara">
+        <span property="schema:name">Tabara Emanuel</span>
+        <ul>
+          <li property="sa:roleContactPoint" typeof="schema:ContactPoint">
+            <a href="emanuel@gmail.com" property="schema:email">emanuel@gmail.com</a>
+          </li>
+        </ul>
+      </li>
+      <li property="schema:author" typeof="sa:ContributorRole">
+        <span property="schema:author" typeof="schema:Person"></span>
+        <meta property="schema:givenName" content="Gabriel">
+        <meta property="schema:familyName" content="Diac">
+        <span property="schema:name">Diac Gabriel</span>
+        <ul>
+          <li property="sa:roleContactPoint" typeof="schema:ContactPoint">
+            <a href="gabiddiac@gmail.com" property="schema:email">gabiddiac@gmail.com</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <dl>
+      <dt>Cod sursa:
+      <dd>
+        <a href="https://github.com/tabaraemanuel/MusicReviewManager">GitHub</a>
+      </dd>
+    </dl>
+  </section>
+  <section typeof="sa:Abstract">
+
+    <h2>Cerinte</h2>
+    <p>Se doreste crearea unei aplicatii Web care permite specificarea adnotarilor textuale si a meta-datelor (a se
+      studia The Ultimate Guide to Music Metadata), plus exprimarea opiniilor vizand auditiile muzicale realizate de o
+      persoana sau grup de persoane. Sistemul va realiza managementul productiilor muzicale, inclusiv organizarea lor pe
+      diverse criterii: categorie, artist, album, an, legaturi cu alte melodii inrudite etc. Se vor oferi statistici
+      diverse ce pot fi exportate in formate deschise – minimal, CSV si PDF. Diversele anunturi (o persoana a comentat
+      un album muzical, a aparut o alta compilatie de interes, modificarea clasamentului celor mai apreciate cantece ale
+      lunii etc.) vor fi expuse ca flux de stiri RSS. Listele de melodii preferate vor fi importate/exportate in format
+      JSPF/XSPF.
+  </section>
+
+  <section id="documentation">
+    <h2>Documentatie</h2>
+
+    <h3>Front-End</h3>
+    <p>
+    <p>Prima pagina pe care utilizatorul o va intalni este cea de login/register.Aici va trebui sa se logeze sau sa-si
+      creeze un cont pentru a putea accesa aplicatia.<br>
+      &emsp;Majoritatea paginilor sunt formate din 2 componente: meniul si pagina accesata propriu-zisa.<br>
+      &emsp;Toate paginile au culoarea fundalului #6a62d2 si cea a textului alba.<br>
+      &emsp;Meniul este realizat intr-o pagina shtml separata, fiind introdus in toate paginile cu ajutorul comandei
+      "include" din PHP.Implementarea aceasta permitand aducerea modificarilor meniului din fiecare pagina intr-o
+      maniera simpla.<br>
+      &emsp;El este format din 4 butoane de navigare(Home, Stiri, Favorite, Auditii, Utilizatori), fiecare accesand
+      pagina specifica, si un buton de Logout pentru parasirea aplicatiei.<br>
+      &emsp;Fiecare buton este reprezentat de un <b><i> &lt;a&gt; &lt;/a&gt;</i></b> in html fiind stilizat cu ajutorul
+      CSS,folosing si proprietatea de hover. <br>
+      &emsp;Partea propriu-zisa a paginilor este pus in doua div-uri: <em><strong>continutContainter</strong></em> si
+      <em><strong>continut</strong></em>. Primul centrand pagina cu ajutorul margin:auto, iar cel de-al doilea
+      stilizand: div-ul cu o culoare de background:#171717 ,o umbra si o bordura de culoarea #323232. <br>
+      &emsp;Home page-ul este impartit in mai multe div-uri de tip <strong><em>box</em></strong> si
+      <strong><em>boxFlex</em></strong>. Ambele fiind stilizate la fel( background-color: #1c1d22; border: 1px solid
+      #323232;
+      box-shadow: 2px 2px 5px rgb(0, 0, 0);),diferenta fiind modul de display al continutului
+      <strong><em>boxFlex</em></strong> avand proprietatea: display: flex, justify-content: center.<br>
+      &emsp;Primele div-uri ale paginii fiind asemanatoare folosind clasa <strong><em>box</em></strong> pentru titluri
+      si clasa <strong><em>boxFlex</em></strong> pentru sectiune unde se vor afisa melodiile/albumele. In div-urile cu
+      clasa <strong><em>boxFlex</em></strong> fiecare album/melodie este reprezentat de un div de tip
+      <strong><em>boxMargin</em></strong> stilizat in CSS( background-color: #2F4F4F; border: 3px solid black;
+      box-shadow: 2px 2px 5px white;) in care vom avea imaginea albumului/melodiei si o parte din metadate.<br>
+      &emsp;La sfaritul pagini principale gasim un div ce contine butonele stilizate in CSS(avand si proprietatea
+      hover)prin care se pot descarca statistici in formatul CSV sau PDF.<br>
+      &emsp;Pagina unei melodii cuprinde mai multe div-uri de tip <i><strong>box</strong></i>:<br>
+      -primul cu titlul melodiei<br>
+      -al doilea cu imaginea albumului si o parte din metadate<br>
+      -al treilea contine un buton pentru a accesa pagina cu metadatele specifice<br>
+      -al patrulea fiind format dintr-un <em><strong>&lt;form&gt;</strong></em> in care iti poti scrie parerea ,acorda o
+      nota (de la 0 la 5) si trimite comentariului folosin un buton( background-color: #4169E1; color: white;)<br>
+      -restul fiind div-uri cu comentarii ce contin numele, parerea si nota acordata de alti utilizatori.<br>
+      &emsp;Pagina Auditii utilizatori contine div-uri de tip <i><strong>box</strong></i> in care gasim numele celui ce
+      a lasat review-ul,data la care a fost lasat( de tip <em><strong>span</strong></em> afisat in partea dreapta sus cu
+      ajutorul proprietati: float:right;) si numele melodie la care a fost lasata recenzia. Astfel utilizatorii isi pot
+      face o idee despre tendinte.<br>
+      &emsp;Pagina cu Melodii recomandate cuprinde o serie de div cu clasa <i><strong>melodie</strong></i> ce contin
+      numele melodiei recomandata si durata ei. Aceste melodii pot fi ordonate in functie de mai multe criterii folosind
+      butonul de tip dropdown, amplasat deasupra melodiilor,fiecare criteriu avand un buton separat. Butonul de tip
+      dropdown a fost implentat folosind proprietatile: display:none, hover, display:block. <br>
+      &emsp;Pagina de favorite este asemanatoare cu cea a melodiilor recomandate, diferenta fiind ca melodiile afisate
+      sunt cele preferate ale utilizatorului curent importate folosind butonele de la sfarsitul pagini.Pagina avand 3
+      butoane: primul pentru importarea unui playlist preferat(format JSPF), al doilea pentru salvarea lui pe aplicatie
+      si ultimul pentru exportul listei in format JSPF.<br>
+      Pagina de metadate contine metadatele specifice melodiei accesate, date precum: explicit, album, artist, gen etc.
+      <br>
+      &emsp;Pagina de admin poate fii impartita in 4 sectiuni:<br>
+      -prima sectiune in care adminul poate sterge un utilizator, formata dintr-un
+      div ( de tip<em><strong> de boxMargin</strong></em>) care contine o serie de div-uri de tip
+      <em><strong>numeU</strong></em><strong></strong> in care se afla numele utilizatorului si un buton de
+      stergere.<br>
+      -a doua si a treia sectiune fiind compuse din formulare(de tip <em><strong>form</strong></em>) prin care pot fi
+      adaugate albume, respectiv melodii.<br>
+      -ultima sectiune fiind un div ce contine <i>textarea</i> stilizat in CSS pentru a fii asemanator unui CMD(
+      font-family: "Lucida Console"; background-color:black; color: yellow;) urmat de un buton <i>Executa</i> si de un
+      <i>span</i> in care gasim rezultatul interogarii sql.</p>
+    <h3>Back-End</h3>
+
+
+    <p> Aplicatia a fost dezvoltata majoritar in PHP 7.4 si se bazeaza pe o arhitectura de tip MVC si pe organizarea
+      codului
+      in public si privat, utilizatorului fiindui-i restrictionat accesul direct la fisierele paginilor si controllere
+      din motive evidente, aplicatia sparge URL-ul in mai multe componente, verifica daca prima dintre ele este un
+      controller existent, al doilea argument se presupune ca este o metoda a acelui controller
+      ,deci din nou se verifica daca aceasta exista si daca este publica, iar ce urmeaza dupa eventuala metoda se
+      presupun
+      a fi parametrii metodei. <br>
+      Delimitarea intre aceste elemente in URL se face prin semnul "/". <br>
+      Daca nu exista controller-ul precizat, cel default este "login" si daca nu se specifica o metoda cea default este
+      "index"/<br>
+      Toate controllerele mostenesc o clasa de baza Controller, care are 2 metode: view si model. Model returneaza un
+      obiect de tipul dat ca paramtru iar view invoca un view cu numele paramtrului primit.<br>
+      Prin conventie, controller ul va apela mereu view cu numele sau ca parametru in functia index.
+      Majoritatea controllerlor folosesc au si alte functii care le completeaza functionalitatea, dar nu este
+      obligatoriu
+      sa aiba mai mult de index. <br>
+      Pentru comunicarea cu baza de date se foloseste MySql si se folosesc prepared statements pentru proyejarea
+      impotriva
+      atacurilor de tip SQL injection.<br>
+      Paginile aplicatiei, in afara de login si register, necesita un cont de utilizator. Numele acestuia este salvat in
+      campul $_SESSION['username'], este folosit in aplicatie pentru request-urile de date si este distrus la
+      logout.<br>
+      Am incercat sa fac cat mai mult error checking, sa fie cat mai fluida experienta unui potentilal utilizator prin a
+      face cat mai multe elemente interactive. Cand un utilzizator importa un playlist cu favorite, se verifica daca un
+      track exista in baza de date si doar daca este are posibilitatea de a da click pentru a vedea detalii despre ele
+      (sau metadata). <br>
+      De asemenea, exista o functie de scroll infinite, realizata cu ajutorul tehnologiilor Ajax. In pagina de Istoric
+      auditii, un script Javascript face request-uri asincrone XmlHttp pentru a crea a mai multe comentarii in momentul
+      in care utilizatorul da scroll si se apropie de sfarsitul documentului.<br>
+      Crearea de fisiere cu statistici in format PDF s-a facut cu ajutorul librariei open-source TCPDF, iar cele CS cu
+      ajutorul instructiunii fputcsv. <br>
+      Parolele sunt stocate criptat pe baza de date din motive de securitate.<br>
+      De asemenea, exista un modul de administrare a aplicatiei, un cont de admin, de unde se pot adauga tracks, albume,
+      sterge conturi de utilizator si executa orice fel de comanda SQL intr-un camp dat, iar rezultatul este
+      Faild/Succes sau se afiseaza selectia in cauza sub forma de associative array cu ajutorul instructiunii
+      print_r.<br>
+      Ceele mai noi 5 evenimente de interes sunt expuse intr-un news feed RSS.<br>
+    </p>
+  </section>
+
+  <section id="management">
+    <h2>Management al codului-sursă</h2>
+    <p>Diac Gabriel a scris codul pentru interfata grafica(html+ css) il transmitea mai departe lui Tabara Emanuel,care
+      il implementa in partea de back-end.Dupa care codul este urcat pe github.Fiecare pagina fiind implementata pe
+      rand,un scurt istoric poate fi gasit <a
+        href="https://github.com/tabaraemanuel/MusicReviewManager/commits/master">aici</a>.Am inceput cu pagina de "Sing
+      in/Register",apoi "Metadate", "Istoric","Main" etc.
+    </p>
+    <h3>Contributie</h3>
+    <ul>
+      <li>Tabara Emanuel: Tot ce tine de back end,pagina de register/login si diagrame UML.</li>
+      <li>Diac Gabriel: Realizarea tuturor paginilor site-ului(Html+CSS)(cu exceptia login/register),ghidul
+        utilizatorului si raportul in format Scolary HTML.</li>
+      <li>Impreuna:verificarea reciproca,sugestii si ideei.
+    </ul>
+
+  </section>
+  <section id="bibliography">
+    <h2>Surse de ajutor:</h2>
+    <dl>
+      <dt>Front-end:</dt>
+      <dd>https://www.w3schools.com/</dd>
+      <dd>https://developer.mozilla.org/</dd>
+      <dt>Back-end:</dt>
+      <dd>https://www.w3schools.com/</dd>
+      <dd>https://youtube.com/</dd>
+      <dd>https://stackoverflow.com/</dd>
+      <dd>https://tcpdf.org</dd>
+    </dl>
+  </section>
+</body>
+
+</html>

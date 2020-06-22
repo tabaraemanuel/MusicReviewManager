@@ -1,0 +1,23 @@
+header
+{
+	text-align:center;
+}
+body
+{
+	margin: auto;
+	 max-width: 700px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20px;; 
+	text-align:justify;
+}
+h2
+{
+	margin-left: 50px;
+}
+p
+{ text-indent: 20px;
+}
+.image
+{
+	width: 100%;
+}

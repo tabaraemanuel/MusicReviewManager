@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ro" >
+  <head>
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width">
+     <meta name="keywords" content="project, web, infoiasi">
+    <title>Ghid Utilizator</title>
+    <link rel="stylesheet" href="Ghid.css">
+   
+  </head>
+ <body>
+ <header>
+ <h1>Ghid Utizator</h1>
+  </header>
+  <section typeof="sa:AuthorsList">
+  <h2>Autori</h2>
+        <ul>
+            <li property="schema:author" typeof="sa:ContributorRole">
+            <span property="schema:author"  typeof="schema:Person"></span>
+            <meta property="schema:givenName" content="Emanuel">
+            <meta property="schema:familyName" content="Tabara">
+            <span property="schema:name">Tabara Emanuel</span>
+            <ul>
+            <li property="sa:roleContactPoint" typeof="schema:ContactPoint">
+              <a href="emanuel@gmail.com" property="schema:email"  >tabaraemi@gmail.com</a>
+            </li>
+            </ul>
+          </li>
+          <li property="schema:author" typeof="sa:ContributorRole">
+            <span property="schema:author"  typeof="schema:Person"></span>
+            <meta property="schema:givenName" content="Gabriel">
+            <meta property="schema:familyName" content="Diac">
+            <span property="schema:name">Diac Gabriel</span>
+            <ul>
+            <li property="sa:roleContactPoint" typeof="schema:ContactPoint">
+              <a href="gabiddiac@gmail.com" property="schema:email"  >gabiddiac@gmail.com</a>
+            </li>
+            </ul>
+          </li>
+        </ul>
+         <dl>
+        <dt>Cod sursa:
+            <dd>
+              <a href="https://github.com/tabaraemanuel/MusicReviewManager">GitHub</a>
+            </dd>
+            </dl>
+      </section>
+
+<section typeof="sa:Abstract">
+      
+      <h2>Descriere:</h2>
+       <p><b>Music Review Manager</b> este o aplicatie web ce se ocupa de managmentul productiilor muzicale,permitand utilizatorilor exprimarea opiniilor vizand auditiile, importarea/exportarea unei liste de melodii preferate si exportare de statistici.<br>
+         <b>Aplicatia cuprinde:</b></p>
+       </section>
+       
+              <section id="login">
+       <h2>Login/Register</h2>
+       <p>Pentru utilizarea aplicatie este nevoie de un cont de utilizator, fara acesta neavand posibilitatea de acces la featuring-urile site-ului. Pentru creearea unui cont este nevoie de un username unic(exceptand admin care este rezervat), o adresa valida de email unica si o parola. Odata creat contul ramane stocat in baza de date a apicatiei.</p>
+       <figure typeof="sa:image">
+          <img class="image" src="login.png">
+         <figcaption>*Pagina login </figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img class="image" src="register.png">
+         <figcaption>*Pagina register  </figcaption>
+        </figure>
+       </section>
+       
+             <section id="home">
+    
+       <h2>Home</h2>
+       <p>Dupa logare vei fi redirectionat pe pagina de Home. In aceasta pagina vei gasi: un Top 5 melodii, ordonate de la stanga la dreapta in ordine descrescatoare a popularitatii,5 noi albume si 5 noi melodii afisate in fuctie de ordinea lansarii de catre artist. Printr-un simplu click utilizatorul poate accesa pagina oricarui cantec din Home.
+       In partea stanga sus exista un buton de cautare prin care utilizatorul poate accesa metadatele unui cantec printr-un id specific.
+       In jos-ul pagini se gasesc mai multe butoane care ofera posibilitatea utilizatorului de a descarca statistici.</p>
+       <figure typeof="sa:image">
+          <img class="image" src="main1.png">
+         <figcaption>*Pagina main  </figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img class="image" src="main2.png">
+         <figcaption>*Pagina main  </figcaption>
+        </figure>
+       </section>
+
+       <section id="meniu"> 
+      <h2>Meniu</h2>
+       <p>Se afla pe partea de sus a fiecarei pagini.Este format din 4 butoane de navigare,fiecare accesand pagina specifica, si un buton de Logout pentru parasirea aplicatiei. Daca un utilizator paraseste site-ul fara sa se delogheze, acesta va continua sa fie logat. </p>
+       <figure typeof="sa:image">
+          <img class="image" src="meniu.png">
+         <figcaption>*Meniu </figcaption>
+        </figure>
+       </section>
+       
+ 
+       
+       <section id="favorite">
+       <h2>Favorite</h2>
+       <p>Pagina de favorite va afisa lista de cantece preferate ale utilizatorului curent, daca cantecele de pe pagina au un id in baza de date o sa aiba disponibil si un buton de metadata.In josul pagini exista 3 butoane:primul pentru a importa o lista noua de melodii favorite(format JSPF), al doilea buton pentru a salva aceasta noua lista pe aplicatie si cel de-al treilea pentru a exporta lista.
+</p>
+<figure typeof="sa:image">
+          <img class="image" src="favorite.png">
+         <figcaption>*Pagina cu melodii favorite</figcaption>
+        </figure>
+
+ </section>
+       
+       <section id="stiri">
+       <h2>Stiri</h2>
+       <p>Flux RSS cu cele mai noi anunturi de la site.</p>
+       <figure typeof="sa:image">
+          <img class="image" src="stire.png">
+         <figcaption>*Flux RSS</figcaption>
+        </figure>
+       </section>
+       
+       
+       <section id="Admin">
+       <h2>Admin</h2>
+       <p>O pagina speciala folosita doar de adminul aplicatiei.Din aceasta pagina poti sterge utilizatori, poti adauga melodii/albume noi si poti executa interogari sql.</p>
+       <figure typeof="sa:image">
+          <img class="image" src="admin1.png">
+         <figcaption>*Pagina admin-conturi</figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img class="image" src="admin2.png">
+         <figcaption>*Pagina admin-adaugare album </figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img class="image" src="admin3.png">
+         <figcaption>*Pagina admin-comanda sql  </figcaption>
+        </figure>
+       </section>
+       
+        <section id="Metadate">
+        <h2>Metadate</h2>
+       <p>O pagina care prezinta si permite utilizatorului sa modifice metadatele unui cantec.</p>
+       <figure typeof="sa:image">
+          <img class="image" src="metadate.png">
+         <figcaption>*Pagina metadate  </figcaption>
+        </figure>
+       </section>
+       
+      <section id="Song">
+       <h2>Cantec</h2>
+       <p>Pagina este impartita in mai multe sectiuni.In prima parte gasim imaginea si o parte din metadatele cantecului.Urmatoarea sectiune este reprezentata de un  buton prin care utilizatorul poate accesa metadatele specifice.Ultima sectiune reprezinta partea de recenzii unde utilizatorul poate lasa un review si poate vedea restul parerilor.</p>
+       <figure typeof="sa:image">
+          <img class="image" src="cantec1.png">
+         <figcaption>*Pagina cantec  </figcaption>
+        </figure>
+        <figure typeof="sa:image">
+          <img class="image" src="cantec2.png">
+         <figcaption>*Pagina cantec  </figcaption>
+        </figure>
+       </section>
+       
+       
+        <section id="Auditii">
+       <h2>Auditi utilizatori</h2>
+       <p>Pe aceasta pagina va aparea o lista cu: cele mai recente melodii recenzuite, utilizatorul care si-a lasat parerea si data.Astfel utilizatorii aplicatiei isi pot face o idee despre tendinte.</p>
+       <figure typeof="sa:image">
+          <img class="image" src="auditii.png">
+         <figcaption>*Pagina auditii  </figcaption>
+        </figure>
+       </section>
+       
+       <section id="Recomandate">
+       <h2>Melodii recomandate</h2>
+       <p>Pagina prezentand o lista cu melodii asemanatoare celei accesate de utilizator.Lista poate fi ordonata dupa diferite criterii precum: popularitate, durata si data lansari cu ajutorul unui buton de tip dropdown.</p>
+       <figure typeof="sa:image">
+          <img class="image" src="recomandate.png">
+         <figcaption>*Pagina recomandate  </figcaption>
+        </figure>
+       </section>
+ </body>
+</html>
