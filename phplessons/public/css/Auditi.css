@@ -84,3 +84,25 @@ color: white;
 {
 	float: right;
 }
+@media screen and (max-width: 530px) {
+ .meniuleft{
+  border: 2px solid black; 
+}
+.meniuright{
+  border: 2px solid black;
+  float:left;
+
+}
+.topnav a {
+  width:100%;
+  text-align: left;
+}
+h2{
+	font-size: 16px;
+	
+}
+.box
+{   text-align:justify;
+padding: 5px;
+}
+}

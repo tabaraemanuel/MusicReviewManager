@@ -33,13 +33,6 @@ color: white;
   
 }
 
-.meniuleftActive{
- float: left;
- background-color: #1c1d22;
- border-right: 2px solid black;
-  color: white;
-}
-
 .meniuright{
   float: right;
    border-left: 2px solid black;
@@ -70,18 +63,17 @@ color: white;
     border: 1px solid #323232;
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
     overflow:auto;
-    clear: both;
     margin: 0 0 10px;
 	border-radius: 7px;
 	
 }
 .boxMargin
-{    background-color: #2F4F4F;
+{    
+background-color: #2F4F4F;
     padding: 15px;
     border: 3px solid black;
     box-shadow: 2px 2px 5px white;
     overflow:auto;
-    clear: both;
     margin: 0 10px 10px;
 	border-radius: 7px;
 	min-width: 150px;
@@ -90,13 +82,11 @@ color: white;
 .boxFlex
 {   
 display: flex;
-justify-content:  center ;
 	 background-color: #1c1d22;
     padding: 15px;
     border: 1px solid #323232;
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
     overflow:auto;
-    clear: both;
     margin: 0 0 10px;
 	border-radius: 7px;
 	
@@ -110,13 +100,6 @@ justify-content:  center ;
 	
 	
 }
-.cover {
- display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
-}
-
 .linkCategori
 {
 	text-decoration:none;
@@ -159,7 +142,53 @@ min-width:100px;
 {
 	border: 2px solid black;
 	background-color: white;
-	color: black;
+	color: black; 
+}
+.coverRecenzie {
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%
+}
+@media screen and (max-width: 530px) {
+ .meniuleft{
+  border: 2px solid black; 
+}
+.meniuright{
+  border: 2px solid black;
+  float:left;
+
+}
+.topnav a {
+  width:100%;
+  text-align: left;
+}
+.boxFlex
+{
+	flex-wrap: wrap;	
+}
+}
+@media screen and (max-width: 400px) {
+.boxFlexGol
+{
+	flex-wrap: wrap;	
+}
+.buttonDowR
+{  
+width: 100%; 
+
+}
+.buttonDowL
+{
 	
-  
+width: 100%;
+  margin-bottom:10px;
+}
+}
+@media screen and (min-width: 1150px)
+{
+.boxFlex
+{
+	justify-content:  center;
+}
 }

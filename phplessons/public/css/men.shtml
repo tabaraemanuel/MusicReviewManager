@@ -1,6 +1,6 @@
 <div class="topnav">
   <div>
-    <a class="meniuleftActive" href="http://localhost/phplessons/public/main">Home</a>
+    <a class="meniuleft" href="http://localhost/phplessons/public/main">Home</a>
     <a class="meniuleft" href="http://localhost/phplessons/public/stiri">Flux Stiri</a>
     <a class="meniuleft" href="http://localhost/phplessons/public/transfer">Favorite</a>
     <a class="meniuleft" href="http://localhost/phplessons/public/auditii">Auditii utilizatori</a>

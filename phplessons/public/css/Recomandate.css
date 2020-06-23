@@ -145,3 +145,17 @@ color:black;}
   justify-content:  right ;
   
 }
+@media screen and (max-width: 530px) {
+ .meniuleft{
+  border: 2px solid black; 
+}
+.meniuright{
+  border: 2px solid black;
+  float:left;
+
+}
+.topnav a {
+  width:100%;
+  text-align: left;
+}
+}

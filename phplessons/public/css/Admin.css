@@ -133,7 +133,7 @@ color: white;
 }
 .casetaMetadate
 {
-	width: 99%;
+	width: 98%;
   padding: 10px 10px;
   margin-top: 9px ;
    margin-bottom: 9px ;
@@ -176,7 +176,7 @@ color: white;
 	font-family: "Lucida Console";
 	background-color:black;
 	color: yellow;
-	width: 99%;
+	width: 98%;
   padding: 10px ;
   margin-top: 9px ;
    margin-bottom: 9px ;
@@ -203,4 +203,37 @@ color: white;
 .buttonExecuta:hover{
 border:2px solid yellow;
 }
+@media screen and (max-width: 530px) {
+ .meniuleft{
+  border: 2px solid black; 
+}
+.meniuright{
+  border: 2px solid black;
+  float:left;
 
+}
+.topnav a {
+  width:100%;
+  text-align: left;
+}
+}
+@media screen and (max-width: 650px) {
+.casetaMetadate
+{
+width: 95%;
+}
+.rezultat
+{
+width: 95%;
+}
+}
+@media screen and (max-width: 400px) {
+.casetaMetadate
+{
+width: 92%;
+}
+.rezultat
+{
+width: 95%;
+}
+}
